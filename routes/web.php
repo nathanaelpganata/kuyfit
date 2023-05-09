@@ -25,3 +25,6 @@ Route::post('/register', [Register::class, 'store'])->name('register');
 Route::get('/pesanan/detail-pesanan', function() {
     return view('detailPesanan');
 });
+Route::get('/tambahopsibank', function () {
+    return view('dashboard.tambahOpsiBank');
+});
