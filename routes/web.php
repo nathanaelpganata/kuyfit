@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('landing');
 });
 
+// Register
 Route::get('/register', [Register::class, 'index'])->name('register');
 Route::post('/register', [Register::class, 'store'])->name('register');
 
