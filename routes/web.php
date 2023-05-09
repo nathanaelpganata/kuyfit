@@ -22,3 +22,6 @@ Route::get('/', function () {
 Route::get('/register', [Register::class, 'index'])->name('register');
 Route::post('/register', [Register::class, 'store'])->name('register');
 
+Route::get('/pesanan/detail-pesanan', function() {
+    return view('detailPesanan');
+});

@@ -1,4 +1,4 @@
-<nav class="fixed top-0 flex flex-row justify-between items-center h-16 w-full bg-transparent px-8 text-xl font-poppins pt-4">
+<nav class="fixed top-0 flex flex-row justify-between items-center text-white h-16 w-full bg-transparent px-8 text-xl font-poppins pt-4">
     <div>
         {{-- Logo --}}
         <a href="/" class="text-">Kuyfit</a>
