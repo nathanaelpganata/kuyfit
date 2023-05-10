@@ -28,3 +28,6 @@ Route::get('/pesanan/detail-pesanan', function() {
 Route::get('/tambahopsibank', function () {
     return view('dashboard.tambahOpsiBank');
 });
+Route::get('/signin', function () {
+    return view('auth.login');
+});
