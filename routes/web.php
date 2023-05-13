@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardBank;
+use App\Http\Controllers\DashboardHome;
+use App\Http\Controllers\DashboardLapangan;
+use App\Http\Controllers\DashboardPesanan;
 use App\Http\Controllers\Register;
 use Illuminate\Support\Facades\Route;
 
@@ -14,20 +18,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth
+Route::get('/login', function () {
+    return view('auth.login');
+});
+Route::get('/register', [Register::class, 'index'])->name('register');
+Route::post('/register', [Register::class, 'store'])->name('register');
+
+// User
 Route::get('/', function () {
     return view('landing');
 });
 
-// Register
-Route::get('/register', [Register::class, 'index'])->name('register');
-Route::post('/register', [Register::class, 'store'])->name('register');
-
-Route::get('/pesanan/detail-pesanan', function() {
-    return view('detailPesanan');
-});
-Route::get('/tambahopsibank', function () {
-    return view('dashboard.tambahOpsiBank');
-});
-Route::get('/signin', function () {
-    return view('auth.login');
+// Dashboard
+Route::prefix('/my')->group(function () {
+    Route::get('/', [DashboardHome::class, 'index'])->name('dashboard.home');
+    Route::get('/pesanan', [DashboardPesanan::class, 'index'])->name('dashboard.pesanan');
+    Route::get('/pesanan/detail-pesanan', function () {
+        return view('detailPesanan');
+    });
+    Route::get('/lapangan', [DashboardLapangan::class, 'index'])->name('dashboard.lapangan');
+    Route::get('/bank', [DashboardBank::class, 'index'])->name('dashboard.bank');
+    Route::get('/bank/tambahopsibank', function () {
+        return view('dashboard.tambahOpsiBank');
+    });
 });

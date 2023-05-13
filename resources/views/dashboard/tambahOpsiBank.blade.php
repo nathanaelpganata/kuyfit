@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.dashboard.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', 'Tambah Opsi Bank')</title>
-    @vite('resources/css/app.css')
-</head>
+@section('title', 'Tambah Opsi Bank')
+@section('content')
 
-<body class="bg-[#F4F4F4]">
+<div class="bg-[#F4F4F4]">
     <div class="flex justify-between m-10">
         <h1 class="text-4xl font-bold text-left">Tambah Opsi Bank</h1>
         <button class="px-10 py-4 mr-3 text-xl font-bold text-white bg-[#445863] rounded-xl hover:bg-[#3F95C5]"
@@ -34,6 +28,5 @@
             </div>
         </form>
     </div>
-</body>
-
-</html>
+</div>
+@endsection

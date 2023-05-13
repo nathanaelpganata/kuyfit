@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <div class="flex flex-col">
+    <div class="flex flex-col w-full">
         @include('layouts.dashboard.navbar')
-
         <div class="flex flex-row">
             @include('layouts.dashboard.sidebar')
-
-            @yield('content')
+            <div class="flex lg:pl-[260px] pt-20 bg-white w-full" >
+                @yield('content')
+            </div>
         </div>
     </div>
 </body>
