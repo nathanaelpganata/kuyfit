@@ -15,8 +15,14 @@
 
         <div class="flex flex-row">
             @include('layouts.dashboard.sidebar')
+<<<<<<< Updated upstream
 
             @yield('content')
+=======
+            <div class="lg:pl-[260px] pt-20 bg-white w-full" >
+                @yield('content')
+            </div>
+>>>>>>> Stashed changes
         </div>
     </div>
 </body>

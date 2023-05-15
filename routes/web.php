@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('auth.signup');
 });
+
+Route::get('/dev', function () {
+    return view('dashboard.tambahLapangan');
+});
