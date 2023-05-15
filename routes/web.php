@@ -43,3 +43,7 @@ Route::prefix('/my')->group(function () {
         return view('dashboard.tambahOpsiBank');
     });
 });
+
+Route::get('/dev', function () {
+    return view('dashboard.tambahLapangan');
+});

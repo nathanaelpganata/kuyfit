@@ -14,7 +14,7 @@
         @include('layouts.dashboard.navbar')
         <div class="flex flex-row">
             @include('layouts.dashboard.sidebar')
-            <div class="flex lg:pl-[260px] pt-20 bg-white w-full" >
+            <div class="lg:pl-[260px] pt-20 bg-white w-full" >
                 @yield('content')
             </div>
         </div>
