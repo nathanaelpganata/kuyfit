@@ -3,7 +3,7 @@
 @section('title', 'Dashboard | Lapangan')
 
 @section('content')
-    <div class="mt-[38px] mx-[55px]">
+    <form submit="" class="mt-[38px] w-full mx-[55px]">
         <div class="flex justify-between">
             <div>
                 <h1 class="text-4xl font-bold">
@@ -15,19 +15,19 @@
                 Simpan
             </button>
         </div>
-        <div class="bg-[#8ED6FF] pb-8 ml-[21px] mt-12 rounded-xl">
+        <div class="bg-[#8ED6FF] pb-8 ml-[21px] mt-12 w-full rounded-xl">
             <div class="flex flex-col gap-[22px] ml-[21px] pt-[69px]">
                 <div class="flex flex-row gap-[75px] content-center">
                     <div class="w-48 flex content-center">
-                        <h2 class="flex items-center justify-center text-white font-semibold text-lg">Nama Lapangan</h2>
+                        <label for="name" class="flex items-center justify-center text-white font-semibold text-lg">Nama Lapangan</label>
                     </div>
                     <input
                         class="w-[575px] h-[53px] rounded-lg bg-[#3F95C5] focus:outline-none px-3  placeholder:text-white/[0.3] font-bold text-white"
-                        placeholder="Masukkan nama lapangan anda!" type="text">
+                        placeholder="Masukkan nama lapangan anda!" id="name" type="text">
                 </div>
                 <div class="flex flex-row gap-[75px] content-center">
                     <div class="w-48 flex content-center">
-                        <h2 class="flex items-center justify-center text-white font-semibold text-lg">Jenis Lapangan</h2>
+                        <label for="type" class="flex items-center justify-center text-white font-semibold text-lg">Jenis Lapangan</label>
                     </div>
                     <div class="relative">
                         <select
@@ -43,31 +43,31 @@
                 </div>
                 <div class="flex flex-row gap-[75px] content-center">
                     <div class="w-48 flex content-center">
-                        <h2 class="flex items-center justify-center text-white font-semibold text-lg">Jam Operasional</h2>
+                        <label for="operatingTime" class="flex items-center justify-center text-white font-semibold text-lg">Jam Operasional</label>
                     </div>
                     <input
                         class="w-[575px] h-[53px] rounded-lg bg-[#3F95C5] focus:outline-none px-3  placeholder:text-white/[0.3] font-bold text-white"
-                        placeholder="Masukkan jam operasional lapangan anda" type="text">
+                        placeholder="Masukkan jam operasional lapangan anda" id="operatingTime" type="text">
                 </div>
                 <div class="flex flex-row gap-[75px] content-center">
                     <div class="w-48 flex content-center">
-                        <h2 class="flex items-center justify-center text-white font-semibold text-lg">Alamat</h2>
+                        <label for="address" class="flex items-center justify-center text-white font-semibold text-lg">Alamat</label>
                     </div>
                     <input
                         class="w-[575px] h-[53px] rounded-lg bg-[#3F95C5] focus:outline-none px-3  placeholder:text-white/[0.3] font-bold text-white"
-                        placeholder="Masukkan alamat lapangan anda" type="text">
+                        placeholder="Masukkan alamat lapangan anda" type="text" id="address">
                 </div>
                 <div class="flex flex-row gap-[75px] content-center">
-                    <div class="w-48 flex content-center">
-                        <h2 class="flex items-center justify-center text-white font-semibold text-lg">No Telepon</h2>
+                    <div  class="w-48 flex content-center">
+                        <label for="telp" class="flex items-center justify-center text-white font-semibold text-lg">No Telepon</label>
                     </div>
                     <input
                         class="w-[575px] h-[53px] rounded-lg bg-[#3F95C5] focus:outline-none px-3  placeholder:text-white/[0.3] font-bold text-white"
-                        placeholder="Masukkan no telepon anda" type="text">
+                        placeholder="Masukkan no telepon anda" id="telp" type="text">
                 </div>
                 <div class="flex flex-row gap-[75px] content-center">
                     <div class="w-48 flex content-center">
-                        <h2 class="flex items-center justify-center text-white font-semibold text-lg">Fasilitas</h2>
+                        <label class="flex items-center justify-center text-white font-semibold text-lg">Fasilitas</label>
                     </div>
                     <div class="flex flex-row gap-[63px]">
                         <input type="checkbox" value="wifi" id="wifi" class="peer/wifi hidden"/>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="flex flex-row gap-[75px] content-center">
                     <div class="w-48 flex content-center">
-                        <h2 class="flex items-center justify-center text-white font-semibold text-lg">Jam Operasional</h2>
+                        <label class="flex items-center justify-center text-white font-semibold text-lg">Upload Foto</label>
                     </div>
                     <div
                         class="w-[575px] h-[253px] rounded-lg bg-[#3F95C5] flex flex-col px-3  placeholder:text-white/[0.3] font-bold text-white">
@@ -108,6 +108,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 @endsection
 
