@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Profil;
 use App\Http\Controllers\Register;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,11 @@ Route::get('/', function () {
 Route::get('/register', [Register::class, 'index'])->name('register');
 Route::post('/register', [Register::class, 'store'])->name('register');
 
+Route::get('/pesanan/detail-pesanan', function () {
+    return view('detailPesanan');
+});
+Route::get('/tambahopsibank', function () {
+    return view('dashboard.tambahOpsiBank');
+});
+
+Route::get('profil', [Profil::class, 'index'])->name('profil');
