@@ -3,10 +3,12 @@
 use App\Http\Controllers\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardBank;
+use App\Http\Controllers\DashboardBankTambah;
 use App\Http\Controllers\DashboardHome;
-use App\Http\Controllers\TambahLapangan;
+use App\Http\Controllers\DashboardTambahLapangan;
 use App\Http\Controllers\DashboardPesanan;
 use App\Http\Controllers\DashboardLapangan;
+use App\Http\Controllers\DashboardPesananDetail;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,15 +35,15 @@ Route::get('/', function () {
 
 // Dashboard
 Route::prefix('/my')->group(function () {
+    // Home
     Route::get('/', [DashboardHome::class, 'index'])->name('dashboard.home');
+    // Pesanan
     Route::get('/pesanan', [DashboardPesanan::class, 'index'])->name('dashboard.pesanan');
-    Route::get('/pesanan/detail-pesanan', function () {
-        return view('detailPesanan');
-    });
+    Route::get('/pesanan/detail', [DashboardPesananDetail::class, 'index'])->name('dashboard.pesanan.detail');
+    // Lapangan
     Route::get('/lapangan', [DashboardLapangan::class, 'index'])->name('dashboard.lapangan');
-    Route::get('/lapangan/tambah', [TambahLapangan::class, 'index'])->name('dashboard.lapangan.tambah');
+    Route::get('/lapangan/tambah', [DashboardTambahLapangan::class, 'index'])->name('dashboard.lapangan.tambah');
+    // Bank
     Route::get('/bank', [DashboardBank::class, 'index'])->name('dashboard.bank');
-    Route::get('/bank/tambahopsibank', function () {
-        return view('dashboard.tambahOpsiBank');
-    });
+    Route::get('/bank/tambah', [DashboardBankTambah::class, 'index'])->name('dashboard.bank.tambah');
 });
