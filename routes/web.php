@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Profil;
 use App\Http\Controllers\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardBank;
@@ -9,6 +10,7 @@ use App\Http\Controllers\DashboardTambahLapangan;
 use App\Http\Controllers\DashboardPesanan;
 use App\Http\Controllers\DashboardLapangan;
 use App\Http\Controllers\DashboardPesananDetail;
+use App\Http\Controllers\Landing;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +30,17 @@ Route::get('/login', function () {
 Route::get('/register', [Register::class, 'index'])->name('register');
 Route::post('/register', [Register::class, 'store'])->name('register');
 
-// User
-Route::get('/', function () {
-    return view('landing');
+Route::get('/pesanan/detail-pesanan', function () {
+    return view('detailPesanan');
 });
+Route::get('/tambahopsibank', function () {
+    return view('dashboard.tambahOpsiBank');
+});
+
+
+// User
+Route::get('/', [Landing::class, 'index'])->name('landing');
+Route::get('profil', [Profil::class, 'index'])->name('profil');
 
 // Dashboard
 Route::prefix('/my')->group(function () {
