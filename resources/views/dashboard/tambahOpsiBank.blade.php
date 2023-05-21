@@ -3,7 +3,7 @@
 @section('title', 'Tambah Opsi Bank')
 @section('content')
 
-<div class="bg-[#F4F4F4]">
+<div class="w-full h-full bg-[#F4F4F4]">
     <div class="flex justify-between m-10">
         <h1 class="text-4xl font-bold text-left">Tambah Opsi Bank</h1>
         <button class="px-10 py-4 mr-3 text-xl font-bold text-white bg-[#445863] rounded-xl hover:bg-[#3F95C5]"

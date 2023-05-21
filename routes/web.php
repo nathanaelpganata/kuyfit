@@ -36,6 +36,15 @@ Route::get('/pesanan/detail-pesanan', function () {
 Route::get('/tambahopsibank', function () {
     return view('dashboard.tambahOpsiBank');
 });
+Route::get('/futsal', function () {
+    return view('futsal');
+});
+Route::get('/basket', function () {
+    return view('basket');
+});
+Route::get('/badminton', function () {
+    return view('badminton');
+});
 
 
 // User
