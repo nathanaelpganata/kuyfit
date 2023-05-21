@@ -46,9 +46,9 @@ Route::get('/tambahopsibank', function () {
 // User
 Route::get('/', [Landing::class, 'index'])->name('landing');
 Route::get('profil', [Profil::class, 'index'])->name('profil');
-Route::get('/lapangan/badminton', [Badminton::class, 'index'])->name('badminton');
-Route::get('/lapangan/basket', [Basket::class, 'index'])->name('basket');
-Route::get('/lapangan/futsal', [Futsal::class, 'index'])->name('futsal');
+Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
+Route::get('/explore/basket', [Basket::class, 'index'])->name('basket');
+Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
 
 // Dashboard
 Route::prefix('/my')->group(function () {
