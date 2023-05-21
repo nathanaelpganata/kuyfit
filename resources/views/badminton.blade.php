@@ -26,7 +26,7 @@
         </div>
         <div>
             <div class="pt-32 flex px-[75px] justify-center space-x-4">
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">
@@ -34,7 +34,7 @@
                         <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
                     </div>
                 </a>
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">
@@ -42,33 +42,7 @@
                         <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
                     </div>
                 </a>
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
-                    <img src="/images/lapbadminton.png" alt="">
-                    <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
-                    <div class="flex items-center space-x-2">
-                        <img src="/images/vectorlokasi.png" alt="">
-                        <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
-                    </div>
-                </a>
-            </div>
-            <div class="pt-14 flex px-[75px] justify-center space-x-4">
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
-                    <img src="/images/lapbadminton.png" alt="">
-                    <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
-                    <div class="flex items-center space-x-2">
-                        <img src="/images/vectorlokasi.png" alt="">
-                        <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
-                    </div>
-                </a>
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
-                    <img src="/images/lapbadminton.png" alt="">
-                    <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
-                    <div class="flex items-center space-x-2">
-                        <img src="/images/vectorlokasi.png" alt="">
-                        <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
-                    </div>
-                </a>
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">
@@ -78,7 +52,7 @@
                 </a>
             </div>
             <div class="pt-14 flex px-[75px] justify-center space-x-4">
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">
@@ -86,7 +60,7 @@
                         <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
                     </div>
                 </a>
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">
@@ -94,7 +68,33 @@
                         <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
                     </div>
                 </a>
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
+                    <img src="/images/lapbadminton.png" alt="">
+                    <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
+                    <div class="flex items-center space-x-2">
+                        <img src="/images/vectorlokasi.png" alt="">
+                        <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
+                    </div>
+                </a>
+            </div>
+            <div class="pt-14 flex px-[75px] justify-center space-x-4">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
+                    <img src="/images/lapbadminton.png" alt="">
+                    <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
+                    <div class="flex items-center space-x-2">
+                        <img src="/images/vectorlokasi.png" alt="">
+                        <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
+                    </div>
+                </a>
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
+                    <img src="/images/lapbadminton.png" alt="">
+                    <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
+                    <div class="flex items-center space-x-2">
+                        <img src="/images/vectorlokasi.png" alt="">
+                        <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
+                    </div>
+                </a>
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">
@@ -104,7 +104,7 @@
                 </a>
             </div>
             <div class="pt-14 pb-32 flex px-[75px] justify-center space-x-4">
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">
@@ -112,7 +112,7 @@
                         <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
                     </div>
                 </a>
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">
@@ -120,7 +120,7 @@
                         <p class="font-normal text-[#979797]">Jl. Nangka No. 05</p>
                     </div>
                 </a>
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#F4F4F4]">
+                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
                     <img src="/images/lapbadminton.png" alt="">
                     <h3 class="mb-2 text-xl tracking-tight text-[#363636]">Pandawa Badminton</h3>
                     <div class="flex items-center space-x-2">

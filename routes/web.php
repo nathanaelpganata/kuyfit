@@ -11,6 +11,10 @@ use App\Http\Controllers\DashboardPesanan;
 use App\Http\Controllers\DashboardLapangan;
 use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Landing;
+use App\Http\Controllers\Badminton;
+use App\Http\Controllers\Basket;
+use App\Http\Controllers\Futsal;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,20 +40,15 @@ Route::get('/pesanan/detail-pesanan', function () {
 Route::get('/tambahopsibank', function () {
     return view('dashboard.tambahOpsiBank');
 });
-Route::get('/futsal', function () {
-    return view('futsal');
-});
-Route::get('/basket', function () {
-    return view('basket');
-});
-Route::get('/badminton', function () {
-    return view('badminton');
-});
+
 
 
 // User
 Route::get('/', [Landing::class, 'index'])->name('landing');
 Route::get('profil', [Profil::class, 'index'])->name('profil');
+Route::get('/lapangan/badminton', [Badminton::class, 'index'])->name('badminton');
+Route::get('/lapangan/basket', [Basket::class, 'index'])->name('basket');
+Route::get('/lapangan/futsal', [Futsal::class, 'index'])->name('futsal');
 
 // Dashboard
 Route::prefix('/my')->group(function () {
