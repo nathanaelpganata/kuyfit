@@ -25,4 +25,9 @@ class AuthenticatePemilikPenyewa extends Middleware
 
         return $next($request);
     }
+
+    protected function redirectTo(Request $request): ?string
+    {
+        return $request->expectsJson() ? null : route('login.index');
+    }
 }
