@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->string('accountNumber', 32)->unique('idx_unique_accountNumber');
             $table->timestamp('timeStamp')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->integer('ownerId')->unsigned()->index('idx_ownerId');
-            $table->foreign('ownerId')->references('id')->on('akun_pemilik_lapangan'); 
+            $table->foreign('ownerId')->references('id')->on('akun_pemilik_lapangan');
         });
     }
 

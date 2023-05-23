@@ -3,19 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class Register extends Controller
 {
-    public string $first_name = '';
-    public string $last_name = '';
-    public string $email = '';
-    public string $phone = '';
-    public bool $gender;
-    public bool $account_type;
-    public string $password = '';
-    public string $confirm_password = '';
-    public bool $agreement;
-
     protected $rules = [
         'first_name' => 'required|min:3',
         'last_name' => 'required|min:3',
@@ -33,9 +24,38 @@ class Register extends Controller
         return view('auth.signup');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $validatedData = $request->validate($this->rules);
 
-        dd($validatedData);
+        if ($request->account_type != 1 && $request->account_type != 0)
+            return redirect()->back()->with('error', 'Account type is not valid');
+
+        if ($request->gender != 1 && $request->gender != 0)
+            return redirect()->back()->with('error', 'Gender is not valid');
+
+        if ($request->account_type == '1') {
+            $akun = new \App\Models\AkunPenyewa;
+        } else {
+            $akun = new \App\Models\AkunPemilikLapangan;
+        }
+
+        // check if email already exist
+        $penyewa = \App\Models\AkunPenyewa::where('email', $request->email)->first();
+        $pemilik = \App\Models\AkunPemilikLapangan::where('email', $request->email)->first();
+
+        if ($penyewa || $pemilik)
+            return redirect()->back()->with('error', 'Email already exist');
+
+        $akun->firstName = $request->first_name;
+        $akun->lastName = $request->last_name;
+        $akun->email = $request->email;
+        $akun->phoneNumber = $request->phone;
+        $akun->gender = $request->gender;
+        $akun->password = Hash::make($request->password);
+
+        $akun->save();
+
+        return redirect()->route('login.index')->with('success', 'Account created successfully');
     }
 }

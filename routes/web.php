@@ -15,6 +15,7 @@ use App\Http\Controllers\Badminton;
 use App\Http\Controllers\Basket;
 use App\Http\Controllers\Futsal;
 
+use App\Http\Controllers\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,6 @@ use App\Http\Controllers\Futsal;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Auth
-Route::get('/login', function () {
-    return view('auth.login');
-});
-Route::get('/register', [Register::class, 'index'])->name('register');
-Route::post('/register', [Register::class, 'store'])->name('register');
 
 Route::get('/pesanan/detail-pesanan', function () {
     return view('detailPesanan');
@@ -50,17 +44,30 @@ Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton')
 Route::get('/explore/basket', [Basket::class, 'index'])->name('basket');
 Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
 
+Route::middleware(['guest'])->group(function () {
+    // Auth
+    Route::get('/login', [Login::class, 'index'])->name('login.index');
+    Route::post('/login', [Login::class, 'login'])->name('login.store');
+
+    Route::get('/register', [Register::class, 'index'])->name('register.index');
+    Route::post('/register', [Register::class, 'store'])->name('register.store');
+});
+
 // Dashboard
-Route::prefix('/my')->group(function () {
-    // Home
-    Route::get('/', [DashboardHome::class, 'index'])->name('dashboard.home');
-    // Pesanan
-    Route::get('/pesanan', [DashboardPesanan::class, 'index'])->name('dashboard.pesanan');
-    Route::get('/pesanan/detail', [DashboardPesananDetail::class, 'index'])->name('dashboard.pesanan.detail');
-    // Lapangan
-    Route::get('/lapangan', [DashboardLapangan::class, 'index'])->name('dashboard.lapangan');
-    Route::get('/lapangan/tambah', [DashboardTambahLapangan::class, 'index'])->name('dashboard.lapangan.tambah');
-    // Bank
-    Route::get('/bank', [DashboardBank::class, 'index'])->name('dashboard.bank');
-    Route::get('/bank/tambah', [DashboardBankTambah::class, 'index'])->name('dashboard.bank.tambah');
+Route::middleware(['auth.kuyfit'])->group(function () {
+    Route::get('/logout', [Login::class, 'logout'])->name('logout.index');
+
+    Route::prefix('/my')->group(function () {
+        // Home
+        Route::get('/', [DashboardHome::class, 'index'])->name('dashboard.home');
+        // Pesanan
+        Route::get('/pesanan', [DashboardPesanan::class, 'index'])->name('dashboard.pesanan');
+        Route::get('/pesanan/detail', [DashboardPesananDetail::class, 'index'])->name('dashboard.pesanan.detail');
+        // Lapangan
+        Route::get('/lapangan', [DashboardLapangan::class, 'index'])->name('dashboard.lapangan');
+        Route::get('/lapangan/tambah', [DashboardTambahLapangan::class, 'index'])->name('dashboard.lapangan.tambah');
+        // Bank
+        Route::get('/bank', [DashboardBank::class, 'index'])->name('dashboard.bank');
+        Route::get('/bank/tambah', [DashboardBankTambah::class, 'index'])->name('dashboard.bank.tambah');
+    });
 });

@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string("email")->unique('idx_unique_email');
             $table->string("phoneNumber", 16);
             $table->boolean("gender");
-            $table->boolean("accountType");
             $table->string("password");
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
