@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\AkunPemilikLapangan;
+use App\Models\AkunPenyewa;
+
 return [
 
     /*
@@ -40,6 +43,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'akun_pemilik_lapangan' => [
+            'driver' => 'session',
+            'provider' => 'akun_pemilik_lapangan',
+        ],
+        'akun_penyewa' => [
+            'driver' => 'session',
+            'provider' => 'akun_penyewa',
+        ],
     ],
 
     /*
@@ -63,6 +74,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'akun_pemilik_lapangan' => [
+            'driver' => 'eloquent',
+            'model' => AkunPemilikLapangan::class,
+        ],
+        'akun_penyewa' => [
+            'driver' => 'eloquent',
+            'model' => AkunPenyewa::class,
         ],
 
         // 'users' => [
