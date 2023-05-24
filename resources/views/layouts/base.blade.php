@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
     @vite('resources/css/app.css')
     @yield('custom-style')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -16,6 +17,9 @@
     @yield('content')
 
     @include('layouts.footer')
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 
 </html>
