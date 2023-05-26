@@ -14,7 +14,7 @@ use App\Http\Controllers\Landing;
 use App\Http\Controllers\Badminton;
 use App\Http\Controllers\Basket;
 use App\Http\Controllers\Futsal;
-
+use App\Http\Controllers\Explore;
 use App\Http\Controllers\Login;
 
 /*
@@ -39,10 +39,12 @@ Route::get('/tambahopsibank', function () {
 
 // User
 Route::get('/', [Landing::class, 'index'])->name('landing');
+Route::get('/explore', [Explore::class, 'index'])->name('Explore');
 Route::get('profil', [Profil::class, 'index'])->name('profil');
 Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
 Route::get('/explore/basket', [Basket::class, 'index'])->name('basket');
 Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
+
 
 Route::middleware(['guest'])->group(function () {
     // Auth
