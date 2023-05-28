@@ -1,21 +1,22 @@
 <?php
 
-use App\Http\Controllers\Profil;
-use App\Http\Controllers\Register;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardBank;
-use App\Http\Controllers\DashboardBankTambah;
-use App\Http\Controllers\DashboardHome;
-use App\Http\Controllers\DashboardTambahLapangan;
-use App\Http\Controllers\DashboardPesanan;
-use App\Http\Controllers\DashboardLapangan;
-use App\Http\Controllers\DashboardPesananDetail;
-use App\Http\Controllers\Landing;
-use App\Http\Controllers\Badminton;
+use App\Http\Controllers\Login;
 use App\Http\Controllers\Basket;
 use App\Http\Controllers\Futsal;
+use App\Http\Controllers\Profil;
+use App\Http\Controllers\Landing;
+use App\Http\Controllers\Register;
+use App\Http\Controllers\Badminton;
+use App\Http\Controllers\VenueOrder;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardBank;
+use App\Http\Controllers\DashboardHome;
+use App\Http\Controllers\DashboardPesanan;
+use App\Http\Controllers\DashboardLapangan;
+use App\Http\Controllers\DashboardBankTambah;
+
+use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Explore;
-use App\Http\Controllers\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,22 +29,16 @@ use App\Http\Controllers\Login;
 |
 */
 
-Route::get('/pesanan/detail-pesanan', function () {
-    return view('detailPesanan');
-});
-Route::get('/tambahopsibank', function () {
-    return view('dashboard.tambahOpsiBank');
-});
-
-
 
 // User
 Route::get('/', [Landing::class, 'index'])->name('landing');
 Route::get('/explore', [Explore::class, 'index'])->name('Explore');
-Route::get('profil', [Profil::class, 'index'])->name('profil');
+Route::get('/profil', [Profil::class, 'index'])->name('profil');
 Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
 Route::get('/explore/basket', [Basket::class, 'index'])->name('basket');
 Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
+Route::get('/order/{id}', [VenueOrder::class, 'index']);
+Route::post('/order/{id}', [VenueOrder::class, 'store']);
 
 
 Route::middleware(['guest'])->group(function () {
