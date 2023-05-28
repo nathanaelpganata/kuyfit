@@ -15,7 +15,7 @@
         </div>
     </div>
     {{-- Step Start --}}
-    <form x-data="{step: 1}" action="" method="POST">
+    <form x-data="{step: 2}" action="store" method="POST">
     {{ csrf_field()  }}
     {{-- Step 1 --}}
         <div class="flex flex-row justify-center gap-[46px] pb-20" x-show="step==1">
@@ -71,8 +71,9 @@
         </div>
     {{-- Step 2 --}}
     <div class="flex flex-row justify-center gap-[46px] pb-20" x-show="step==2">
-        <div class="w-56 h-52 bg-slate-400 rounded-lg">
-            <div inline-datepicker data-date="02/25/2022"></div>
+        <div class="relative max-w-sm">
+            <label for="date">Date</label>
+            <input datepicker datepicker-orientation="bottom right" id="date" name="date" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
         </div>
         <div class="flex flex-col items-center justify-center gap-10">
             <div class="grid grid-cols-4 gap-2">
@@ -232,7 +233,8 @@
             <div class="flex flex-col items-start justify-center mt-10 text-sm space-y-4">
                 <div class="flex flex-row items-center justify-center gap-4"><span class="w-6 h-6 text-center rounded-full bg-slate-300">1</span> <span>Salin nomor Rekening yang anda pilih</span></div>
                 <div class="flex flex-row items-center justify-center gap-4"><span class="w-6 h-6 text-center rounded-full bg-slate-300">2</span> <span>Kirim bukti transfer ke kami!</span></div>
-                <input type="file" class="bg-white mt-6 rounded-full">
+                <label for="bukti_pembayaran" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="small_size">Small file input</label>
+                <input name="bukti_pembayaran" id="bukti_pembayaran" class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file">
             </div>
             <button type="submit" class="w-11/12 py-1.5 rounded-[4px] text-white font-semibold bg-[#00B7FF] mt-8 text-center">Kirim</button>
         </div>
