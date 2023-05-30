@@ -15,7 +15,7 @@
         </div>
     </div>
     {{-- Step Start --}}
-    <form x-data="{step: 2}" action="store" method="POST">
+    <form x-data="{step: 1}" action="store" method="POST">
     {{ csrf_field()  }}
     {{-- Step 1 --}}
         <div class="flex flex-row justify-center gap-[46px] pb-20" x-show="step==1">

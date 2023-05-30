@@ -9,13 +9,13 @@
     * {
       box-sizing: border-box;
     }
-    
+
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
     }
-    
+
     .landscape {
   width: 100%;
   height: 100vh;
@@ -44,7 +44,7 @@
       background: #fff;
       padding: 50px 0;
     }
-    
+
     .explore-section h2 {
       font-family: 'Playfair Display', serif;
       font-size: 48px;
@@ -52,25 +52,25 @@
       text-align: center;
       margin-bottom: 50px;
     }
-    
+
     .option-container {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    
+
     .option {
       display: flex;
       align-items: center;
       border: none;
       margin-bottom: 30px;
     }
-    
+
     .option img {
       width: 558px;
       height: 226px;
     }
-    
+
     .option .description {
       width: 558px;
       height: 190px;
@@ -81,52 +81,52 @@
       padding: 10px;
       margin-left: 20px;
     }
-    
+
     .option h3 {
       font-family: 'Rubik', sans-serif;
       font-size: 45px;
       margin-bottom: 10px;
     }
-    
+
     .option p {
       font-family: 'Rubik', sans-serif;
       font-size: 15px;
     }
-    
+
     .option .go-button {
       font-family: 'Rubik', sans-serif;
       font-size: 12px;
       color: #00bfff;
       cursor: pointer;
     }
-    
+
     .footer {
       background: #01B2FE;
       padding: 20px;
       display: flex;
       align-items: center;
     }
-    
+
     .footer img {
       width: 50px;
       height: auto;
       margin-right: 10px;
     }
-    
+
     .footer .menu {
       margin-right: 20px;
     }
-    
+
     .footer .menu a {
       margin-right: 10px;
       text-decoration: none;
       color: #fff;
     }
-    
+
     .footer .contact-info {
       color: #fff;
     }
-    
+
     .location {
       margin-left: auto;
       color: #fff;
@@ -135,10 +135,10 @@
 </head>
 <body>
   <div class="landscape">
-    <h1>Book a Venue Quickly 
+    <h1>Book a Venue Quickly
       and Easily</h1>
   </div>
-  
+
   <div class="explore-section">
     <h2>Choose Your Preferred Sport</h2>
     <div class="option-container">
@@ -168,7 +168,7 @@
       </div>
     </div>
   </div>
-  
+
   <footer class="footer">
     <img src="images/logokuyfit.png" alt="Logo">
     <div class="menu">

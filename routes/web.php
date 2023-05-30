@@ -14,7 +14,6 @@ use App\Http\Controllers\DashboardHome;
 use App\Http\Controllers\DashboardPesanan;
 use App\Http\Controllers\DashboardLapangan;
 use App\Http\Controllers\DashboardBankTambah;
-
 use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Explore;
 
@@ -67,4 +66,7 @@ Route::middleware(['auth.kuyfit'])->group(function () {
         Route::get('/bank', [DashboardBank::class, 'index'])->name('dashboard.bank');
         Route::get('/bank/tambah', [DashboardBankTambah::class, 'index'])->name('dashboard.bank.tambah');
     });
+
 });
+
+
