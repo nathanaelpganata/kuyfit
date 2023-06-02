@@ -1,7 +1,7 @@
-<nav class="fixed top-0 z-20 flex flex-row justify-between items-center text-white h-16 w-full bg-transparent px-8 text-xl font-poppins pt-4">
+<nav class="fixed top-0 flex flex-row items-center justify-between w-full h-16 px-8 pt-4 pb-4 text-xl text-white navbar bg-transparant font-poppins"
+    style="z-index:9999">
     <div>
-        {{-- Logo --}}
-        <a href="/" class="text-">Kuyfit</a>
+        <img src="/images/kuyfitlogotulisan.png" alt="Logo" class="h-14"><a href="/" class="text-"></a>
     </div>
     <div class="space-x-8">
         <a href="#" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Home</a>
@@ -13,3 +13,25 @@
         <a href="#" class="bg-[#01B2FE] px-4 py-3 rounded-xl">Sign up</a>
     </div>
 </nav>
+<style>
+    .navbar-scroll {
+        background-color: #80D8FB;
+        height: 80px;
+    }
+</style>
+<script>
+    // Function to toggle navbar background color on scroll
+    function toggleNavbarBackground() {
+        var navbar = document.querySelector('.navbar');
+        var scrollPosition = window.pageYOffset;
+
+        if (scrollPosition > 350) {
+            navbar.classList.add('navbar-scroll');
+        } else {
+            navbar.classList.remove('navbar-scroll');
+        }
+    }
+
+    // Event listener for scroll event
+    window.addEventListener('scroll', toggleNavbarBackground);
+</script>
