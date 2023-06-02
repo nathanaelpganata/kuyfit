@@ -14,7 +14,6 @@ use App\Http\Controllers\DashboardHome;
 use App\Http\Controllers\DashboardPesanan;
 use App\Http\Controllers\DashboardLapangan;
 use App\Http\Controllers\DashboardBankTambah;
-
 use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Explore;
 
@@ -62,9 +61,20 @@ Route::middleware(['auth.kuyfit'])->group(function () {
         Route::get('/pesanan/detail', [DashboardPesananDetail::class, 'index'])->name('dashboard.pesanan.detail');
         // Lapangan
         Route::get('/lapangan', [DashboardLapangan::class, 'index'])->name('dashboard.lapangan');
-        Route::get('/lapangan/tambah', [DashboardTambahLapangan::class, 'index'])->name('dashboard.lapangan.tambah');
+        Route::get('/lapangan/tambah', [DashboardLapangan::class, 'create'])->name('dashboard.lapangan.tambah');
+        Route::post('/lapangan', [DashboardLapangan::class, 'store'])->name('dashboard.lapangan.store');
+        Route::get('/lapangan/{id}', [DashboardLapangan::class, 'show'])->name('dashboard.lapangan.show');
+        Route::get('/lapangan/{id}/edit', [DashboardLapangan::class, 'edit'])->name('dashboard.lapangan.edit');
+        Route::put('/lapangan/{id}', [DashboardLapangan::class, 'update'])->name('dashboard.lapangan.update');
+        Route::delete('/lapangan/{id}', [DashboardLapangan::class, 'destroy'])->name('dashboard.lapangan.destroy');
         // Bank
         Route::get('/bank', [DashboardBank::class, 'index'])->name('dashboard.bank');
         Route::get('/bank/tambah', [DashboardBankTambah::class, 'index'])->name('dashboard.bank.tambah');
+
     });
 });
+
+
+
+
+
