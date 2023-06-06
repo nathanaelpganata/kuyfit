@@ -12,10 +12,38 @@ class PesananSewaLapangan extends Model
     protected $table = 'pesanan_sewa_lapangan';
 
     protected $fillable = [
-        'date',
-        'hour',
-        'bank',
-        'bukti_pembayaran',
+        'renterId',
+        'ownerId',
+        'bankId',
+        'scheduleId',
+        'timeStamp',
+        'paymentProof',
+        'deadline',
+        'status',
     ];
-    protected $dates = ['created_at', 'updated_at'];
+
+    protected $primaryKey = 'id';
+
+    public $timestamps = false;
+
+    public function akunPenyewa()
+    {
+        return $this->belongsTo(AkunPenyewa::class, 'renterId');
+    }
+
+    public function akunPemilikLapangan()
+    {
+        return $this->belongsTo(AkunPemilikLapangan::class, 'ownerId');
+    }
+
+    public function opsiBank()
+    {
+        return $this->belongsTo(OpsiBank::class, 'bankId');
+    }
+
+    public function jadwalSewaLapangan()
+    {
+        return $this->belongsTo(JadwalSewaLapangan::class, 'scheduleId');
+    }
+
 }
