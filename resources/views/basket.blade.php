@@ -16,10 +16,10 @@
             <img src="/images/bgbasket.png" alt="" srcset="" class="w-full">
             <div
                 class="w-[700px] rounded-xl px-16 py-8 bottom-[-80px] absolute ml-auto mr-auto left-0 right-0 bg-white shadow-lg">
-                <div class="bg-[#80D8FB] w-full rounded-xl">
-                    <div class="flex items-center justify-center space-x-5">
+                <div class="bg-[#80D8FB] w-[560px] h-[129px] flex rounded-xl shadow-xl m-auto font-rubik">
+                    <div class="flex m-auto space-x-4">
                         <img src="/images/vectorbasket.png" alt="">
-                        <h1 class="text-5xl text-center leading-[130px] font-medium">Basket</h1>
+                        <h1 class="text-6xl font-bold">Basket</h1>
                     </div>
                 </div>
             </div>

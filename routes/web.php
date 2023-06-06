@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardBankTambah;
 use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Explore;
 use App\Http\Controllers\ReceiveOrderController;
+use App\Http\Controllers\MyOrders;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::get('/profil', [Profil::class, 'index'])->name('profil');
 Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
 Route::get('/explore/basket', [Basket::class, 'index'])->name('basket');
 Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
+Route::get('/myorders', [MyOrders::class, 'index'])->name('MyOrders');
 
 
 Route::middleware(['guest'])->group(function () {
