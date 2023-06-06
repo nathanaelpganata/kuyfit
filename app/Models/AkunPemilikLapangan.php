@@ -24,5 +24,9 @@ class AkunPemilikLapangan extends Model implements AuthenticatableContract
     ];
     protected $hidden = ['password'];
     protected $primaryKey = 'id';
-    protected $dates = ['created_at', 'updated_at'];
+    public $timestamp = false;
+
+    public function lapangan() {
+        return $this->hasMany(Lapangan::class, 'ownerId');
+    }
 }

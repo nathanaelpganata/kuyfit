@@ -24,5 +24,9 @@ class AkunPenyewa extends Model implements AuthenticatableContract
     ];
     protected $hidden = ['password'];
     protected $primaryKey = 'id';
-    protected $dates = ['created_at', 'updated_at'];
+    public $timestamp = false;
+
+    public function pesananSewaLapangan() {
+        return $this->hasMany(pesananSewaLapangan::class, 'renterId');
+    }
 }

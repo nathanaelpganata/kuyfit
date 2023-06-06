@@ -8,7 +8,7 @@
             <h1 class="text-4xl font-bold text-left">Pesanan</h1>
         </div>
         <div class="flex justify-end mx-10 my-6">
-            <select id="data-amount-filter" name="data-amount-filter" class="text-[#9AA2B1] text-base text-left w-1/5 rounded-md px-5 py-2">
+            <select id="dataFilter" name="dataFilter" class="text-[#9AA2B1] text-base text-left w-1/5 rounded-md px-5 py-2">
                 <option value="10">10 Entries</option>
                 <option value="25">25 Entries</option>
                 <option value="50">50 Entries</option>
@@ -40,66 +40,28 @@
                     </tr>
                 </thead>
                 <tbody class="text-[#092540] bg-white">
-                    <tr>
-                        <td class="px-6 py-4">
-                            Dodi
-                        </td>
-                        <td class="px-6 py-4">
-                            Bhaskara
-                        </td>
-                        <td class="px-6 py-4">
-                            13:00 - 15:00, 12 Maret 2023
-                        </td>
-                        <td class="px-6 py-4">
-                            Pending
-                        </td>
-                        <td class="px-6 py-4">
-                            2023-02-15
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="/my/pesanan/detail-pesanan" class="text-white bg-[#0090BD] py-2 px-5 rounded-lg">Detail</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-6 py-4">
-                            Dodi
-                        </td>
-                        <td class="px-6 py-4">
-                            Bhaskara
-                        </td>
-                        <td class="px-6 py-4">
-                            13:00 - 15:00, 12 Maret 2023
-                        </td>
-                        <td class="px-6 py-4">
-                            Pending
-                        </td>
-                        <td class="px-6 py-4">
-                            2023-02-15
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="/my/pesanan/detail-pesanan" class="text-white bg-[#0090BD] py-2 px-5 rounded-lg">Detail</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-6 py-4">
-                            Dodi
-                        </td>
-                        <td class="px-6 py-4">
-                            Bhaskara
-                        </td>
-                        <td class="px-6 py-4">
-                            13:00 - 15:00, 12 Maret 2023
-                        </td>
-                        <td class="px-6 py-4">
-                            Pending
-                        </td>
-                        <td class="px-6 py-4">
-                            2023-02-15
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="/my/pesanan/detail-pesanan" class="text-white bg-[#0090BD] py-2 px-5 rounded-lg">Detail</a>
-                        </td>
-                    </tr>
+                    @foreach($orders as $order)
+                        <tr>
+                            <td class="px-6 py-4">
+                                {{ $order->firstName . " " . $order->lastName }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $order->venueName }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $order->timeStart . " - " . $order->timeEnd . ", " . $order->date}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $order->status }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $order->timeStamp }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="/my/pesanan/detail/{{ $order->id }}" class="text-white bg-[#0090BD] py-2 px-5 rounded-lg">Detail</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
