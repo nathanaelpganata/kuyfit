@@ -11,13 +11,15 @@
 @stop
 
 @section('content')
-    <div class="flex w-full flex-col">
-        <div class="w-full relative">
+    <div class="flex flex-col w-full">
+        <div class="relative w-full">
             <img src="/images/profil/background.png" alt="" srcset="" class="w-full">
             <div
                 class="w-[700px] rounded-xl px-16 py-8 bottom-[-80px] absolute ml-auto mr-auto left-0 right-0 bg-white shadow-lg">
-                <div class="bg-[#80D8FB] w-full rounded-xl">
-                    <h1 class="text-5xl text-center leading-[130px] font-medium">Profile</h1>
+                <div class="bg-[#80D8FB] w-[560px] h-[129px] flex rounded-xl shadow-xl m-auto font-rubik">
+                    <div class="flex m-auto space-x-4">
+                        <h1 class="text-6xl font-bold">Profile</h1>
+                    </div>
                 </div>
             </div>
         </div>

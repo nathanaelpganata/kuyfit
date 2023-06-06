@@ -29,7 +29,7 @@
                 <div>
                     <div class="mt-14 ml-14">
                         <span class="absolute justify-center p-2 text-sm font-bold text-[#68D5FF] top-3 left-4">Sewa
-                            Venue</span>
+                            Saat Ini</span>
                         <div class="flex">
                             <a href="#" onclick="window.location='https://maps.google.com';" class="h-32 mt-4 w-44">
                                 <img src="/images/map.png" alt="" class="w-full h-full">
@@ -46,7 +46,7 @@
                     <div>
                         <span class="absolute p-2 text-sm font-bold top-3 right-5">
                             <span
-                                class="inline-flex items-center px-2 py-0.5 rounded-lg text-sm font-medium bg-[#68D5FF] text-white">Selesai</span>
+                                class="inline-flex items-center px-2 py-0.5 rounded-lg text-sm font-medium bg-[#68D5FF] text-white">Saat Ini</span>
                         </span>
                     </div>
                 </div>
