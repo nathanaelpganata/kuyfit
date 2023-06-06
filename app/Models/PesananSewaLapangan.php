@@ -46,4 +46,8 @@ class PesananSewaLapangan extends Model
         return $this->belongsTo(JadwalSewaLapangan::class, 'scheduleId');
     }
 
+    public function lapangan()
+    {
+        return $this->belongsTo(Lapangan::class, 'lapanganId');
+    }
 }

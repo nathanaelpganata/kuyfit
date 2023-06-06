@@ -15,14 +15,22 @@ class VenueOrder extends Controller
 
     protected $id;
 
+    protected $lapangan;
+
     public function __construct(Request $request)
     {
         $this->id = $request->route('id');
+        $this->lapangan = \App\Models\Lapangan::where('id', '=', $this->id)->first();
+
+        if (!$this->lapangan)
+            abort(404);
     }
 
     public function index()
     {
-        return view('orderVenue');
+        return view('orderVenue', [
+            'lapangan' => $this->lapangan,
+        ]);
     }
 
     public function store(Request $request)
@@ -31,14 +39,18 @@ class VenueOrder extends Controller
 
         $venueOrder = new \App\Models\PesananSewaLapangan;
 
-        $venueOrder->date = $validatedData['date'];
-        $venueOrder->hour = $validatedData['hour'];
-        $venueOrder->bank = $validatedData['bank'];
-        $venueOrder->bukti_pembayaran = $validatedData['bukti_pembayaran'];
-        $venueOrder->id_penyewa = $this->id;
+        $venueOrder->renterId = auth()->user()->id;
+        $venueOrder->ownerId = $this->lapangan->ownerId;
+        $venueOrder->bankId = 1;
+        $venueOrder->schedule = $validatedData['date'] . " - " . implode(',', $validatedData['hour']);
+        // $venueOrder->bank = $validatedData['bank'];
+        $venueOrder->paymentProof = $validatedData['bukti_pembayaran'];
+        $venueOrder->deadline = date('Y-m-d H:i:s', strtotime($validatedData['date'] . ' + 1 day'));
+        $venueOrder->status = 'pending';
+        $venueOrder->lapanganId = request()->route('id');
 
         $venueOrder->save();
 
-        return;
+        return redirect()->route('my.orders');
     }
 }

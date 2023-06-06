@@ -18,5 +18,22 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        \App\Models\JenisOlahraga::insert(
+            [
+                [
+                    'id' => 1,
+                    'sportType' => 'Basket',
+                ],
+                [
+                    'id' => 2,
+                    'sportType' => 'Futsal',
+                ],
+                [
+                    'id' => 3,
+                    'sportType' => 'Badminton',
+                ]
+            ]
+        );
     }
 }

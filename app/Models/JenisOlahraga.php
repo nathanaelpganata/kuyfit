@@ -17,8 +17,10 @@ class JenisOlahraga extends Model
 
     protected $primaryKey = 'id';
 
-    public function lapangan() {
+    public $timestamps = false;
+
+    public function lapangan()
+    {
         return $this->hasMany(Lapangan::class, 'sportId');
     }
-    
 }

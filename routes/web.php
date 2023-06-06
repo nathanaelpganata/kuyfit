@@ -16,6 +16,7 @@ use App\Http\Controllers\DashboardLapangan;
 use App\Http\Controllers\DashboardBankTambah;
 use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Explore;
+use App\Http\Controllers\ReceiveOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,6 @@ Route::get('/profil', [Profil::class, 'index'])->name('profil');
 Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
 Route::get('/explore/basket', [Basket::class, 'index'])->name('basket');
 Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
-Route::get('/order/{id}', [VenueOrder::class, 'index']);
-Route::post('/order/{id}', [VenueOrder::class, 'store']);
 
 
 Route::middleware(['guest'])->group(function () {
@@ -76,11 +75,7 @@ Route::middleware(['auth.kuyfit'])->group(function () {
         Route::get('/my', [ReceiveOrderController::class, 'showDashboard'])->name('dashboard.home');
         // Pesanan
         Route::get('/my/pesanan', [ReceiveOrderController::class, 'showOrders'])->name('dashboard.pesanan');
-        
     });
+    Route::get('/order/{id}', [VenueOrder::class, 'index']);
+    Route::post('/order/{id}/store', [VenueOrder::class, 'store']);
 });
-
-
-
-
-

@@ -28,6 +28,8 @@ class Lapangan extends Model
 
     protected $primaryKey = 'id';
 
+    public $timestamps = false;
+
     public function jenisOlahraga()
     {
         return $this->belongsTo(JenisOlahraga::class, 'sportId');
@@ -38,8 +40,18 @@ class Lapangan extends Model
         return $this->belongsTo(AkunPemilikLapangan::class, 'ownerId');
     }
 
-    public function jadwalSewaLapangan() {
+    public function akunPenyewa()
+    {
+        return $this->belongsTo(AkunPenyewa::class, 'renterId');
+    }
+
+    public function jadwalSewaLapangan()
+    {
         return $this->hasMany(JadwalSewaLapangan::class, 'venueId');
     }
 
+    public function pesananSewaLapangan()
+    {
+        return $this->hasMany(PesananSewaLapangan::class, 'venueId');
+    }
 }
