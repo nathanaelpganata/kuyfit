@@ -31,7 +31,7 @@
                         <span class="absolute justify-center p-2 text-sm font-bold text-[#68D5FF] top-3 left-4">Sewa
                             Saat Ini</span>
                         <div class="flex">
-                            <a href="#" onclick="window.location='https://maps.google.com';" class="h-32 mt-4 w-44">
+                            <a href="#" onclick="window.location='https://goo.gl/maps/gAz69tT8exCXJ4JP8';" class="h-32 mt-4 w-44">
                                 <img src="/images/map.png" alt="" class="w-full h-full">
                               </a>
                             <div class="flex flex-row mt-12 ml-4">
