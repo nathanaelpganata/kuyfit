@@ -9,7 +9,7 @@
                 Pesanan <br> Baru:
             </div>
             <div class="flex justify-end text-7xl" >
-                1
+                {{ $pending }}
             </div>
         </div>
         <div class="flex flex-col bg-[#8ED6FF] rounded-2xl max-w-[384px] w-full h-52 p-5">
@@ -17,7 +17,7 @@
                 Pesanan <br> Berjalan:
             </div>
             <div class="flex justify-end text-7xl" >
-                10
+                {{ $ongoing }}
             </div>
         </div>
         <div class="flex flex-col bg-[#8ED6FF] rounded-2xl max-w-[384px] w-full h-52 p-5">
@@ -25,7 +25,7 @@
                 Pesanan <br> Selesai:
             </div>
             <div class="flex justify-end text-7xl" >
-                30
+                {{ $finished }}
             </div>
         </div>
 

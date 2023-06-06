@@ -16,6 +16,7 @@ use App\Http\Controllers\DashboardLapangan;
 use App\Http\Controllers\DashboardBankTambah;
 use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Explore;
+use App\Http\Controllers\ReceiveOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,6 @@ Route::get('/profil', [Profil::class, 'index'])->name('profil');
 Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
 Route::get('/explore/basket', [Basket::class, 'index'])->name('basket');
 Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
-Route::get('/order/{id}', [VenueOrder::class, 'index']);
-Route::post('/order/{id}', [VenueOrder::class, 'store']);
 
 
 Route::middleware(['guest'])->group(function () {
@@ -55,10 +54,12 @@ Route::middleware(['auth.kuyfit'])->group(function () {
 
     Route::prefix('/my')->group(function () {
         // Home
-        Route::get('/', [DashboardHome::class, 'index'])->name('dashboard.home');
+        Route::get('/', [ReceiveOrderController::class, 'showDashboard'])->name('dashboard.home');
         // Pesanan
-        Route::get('/pesanan', [DashboardPesanan::class, 'index'])->name('dashboard.pesanan');
+        Route::get('/pesanan', [ReceiveOrderController::class, 'showOrders'])->name('dashboard.pesanan');
         Route::get('/pesanan/detail', [DashboardPesananDetail::class, 'index'])->name('dashboard.pesanan.detail');
+        Route::get('/pesanan/detail/{id}', [ReceiveOrderController::class, 'showOrderDetails'])->name('dashboard.detailPesanan');
+        Route::get('/pesanan/detail/{id}/update/{status}', [ReceiveOrderController::class, 'orderDecision'])->name('dashboard.updatePesanan');
         // Lapangan
         Route::get('/lapangan', [DashboardLapangan::class, 'index'])->name('dashboard.lapangan');
         Route::get('/lapangan/tambah', [DashboardLapangan::class, 'create'])->name('dashboard.lapangan.tambah');
@@ -71,10 +72,10 @@ Route::middleware(['auth.kuyfit'])->group(function () {
         Route::get('/bank', [DashboardBank::class, 'index'])->name('dashboard.bank');
         Route::get('/bank/tambah', [DashboardBankTambah::class, 'index'])->name('dashboard.bank.tambah');
 
+        Route::get('/my', [ReceiveOrderController::class, 'showDashboard'])->name('dashboard.home');
+        // Pesanan
+        Route::get('/my/pesanan', [ReceiveOrderController::class, 'showOrders'])->name('dashboard.pesanan');
     });
+    Route::get('/order/{id}', [VenueOrder::class, 'index']);
+    Route::post('/order/{id}/store', [VenueOrder::class, 'store']);
 });
-
-
-
-
-

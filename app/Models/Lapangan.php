@@ -9,7 +9,6 @@ class Lapangan extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
     protected $table = 'lapangan';
 
     protected $fillable = [
@@ -22,7 +21,37 @@ class Lapangan extends Model
         'canteen',
         'musalla',
         'photo',
+        'timeStamp',
         'sportId',
         'ownerId',
     ];
+
+    protected $primaryKey = 'id';
+
+    public $timestamps = false;
+
+    public function jenisOlahraga()
+    {
+        return $this->belongsTo(JenisOlahraga::class, 'sportId');
+    }
+
+    public function akunPemilikLapangan()
+    {
+        return $this->belongsTo(AkunPemilikLapangan::class, 'ownerId');
+    }
+
+    public function akunPenyewa()
+    {
+        return $this->belongsTo(AkunPenyewa::class, 'renterId');
+    }
+
+    public function jadwalSewaLapangan()
+    {
+        return $this->hasMany(JadwalSewaLapangan::class, 'venueId');
+    }
+
+    public function pesananSewaLapangan()
+    {
+        return $this->hasMany(PesananSewaLapangan::class, 'venueId');
+    }
 }
