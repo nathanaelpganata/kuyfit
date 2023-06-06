@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardTambahLapangan extends Controller
+class Explore extends Controller
 {
     public function index()
     {
-        return view('dashboard.tambahLapangan');
+        return view('explore');
     }
-
 }

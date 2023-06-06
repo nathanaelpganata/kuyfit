@@ -64,10 +64,9 @@
                         </div>
                         <div class="flex flex-col">
                             <label for="phone">Phone*</label>
-                            <div class="flex flex-row justify-start items-center w-72 bg-slate-200 px-2 py-1 mt-1">
+                            <div class="flex flex-row justify-start items-center w-72 bg-slate-200 px-2 py-1 mt-1 whitespace-nowrap">
                                 <span>+62 |</span>
-                                <input name="phone" type="number" id="phone"
-                                    class="bg-transparent ml-2 px-2 outline-none" placeholder="85627392142">
+                                <input name="phone" type="text" id="phone" class="bg-transparent pl-2 h-3 px-2 outline-none border-0" placeholder="85627392142">
                             </div>
                             @error('phone')
                                 <span class="text-red-500 text-sm font-thin">{{ $message }}</span>
@@ -100,25 +99,20 @@
                     </div>
                 </div>
                 <div>
-                    <div class="flex items-center  mt-4">
+                    <div class="flex items-center w-full my-4">
                         <input name="agreement" type="checkbox" class="-translate-y-2 mr-2" id='agreement'>
                         <label for='agreement' class="whitespace-pre-line text-sm">Creating an account means you’re okay
                             with our <a href="#"
-                                class="text-blue-600 hover:text-blue-800 underline text-sm decoration-blue-600 hover:decoration-blue-800">Terms
-                                of Service</a>,
-                            <a href="#"
-                                class="text-blue-600 hover:text-blue-800 underline text-sm decoration-blue-600 hover:decoration-blue-800">Privacy
-                                Policy</a>, and our default <a href="#"
-                                class="text-blue-600 hover:text-blue-800 underline text-sm decoration-blue-600 hover:decoration-blue-800">Notification
-                                Settings</a>.
+                                class="text-blue-600 hover:text-blue-800 underline text-sm decoration-blue-600 hover:decoration-blue-800">Terms wire of Service</a>,<a href="#" class="text-blue-600 hover:text-blue-800 underline text-sm decoration-blue-600 hover:decoration-blue-800">Privacy Policy</a>, and our default <a href="#"
+                                class="text-blue-600 hover:text-blue-800 underline text-sm decoration-blue-600 hover:decoration-blue-800">Notification Settings</a>.
                         </label>
                     </div>
                     @error('agreement')
                         <span class="text-red-500 text-sm font-thin">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="flex flex-col md:flex-row items-start md:items-end justify-between mt-6">
-                    <button type="submit" class="text-white bg-[#01B2FE] w-44 h-10 rounded-[4px] hover:bg-blue-500">Create
+                <div class="flex flex-row justify-between w-full items-center">
+                    <button type="submit" class="text-white bg-blue-500 w-44 h-10 rounded-[4px] hover:bg-blue-500">Create
                         Account</button>
                     <span class="md:mt-0 mt-2">Already a member? <a href="#"
                             class="text-blue-600 hover:text-blue-800 underline decoration-blue-600 hover:decoration-blue-800">Log

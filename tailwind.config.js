@@ -4,6 +4,7 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js"
     ],
     theme: {
         extend: {
@@ -11,8 +12,10 @@ module.exports = {
                 inter: ["Inter", "sans-serif"],
                 poppins: ["Poppins", "sans-serif"],
                 montserrat: ["Montserrat", "sans-serif"],
+                playfair: ["Playfair Display", "sans-serif"],
+                rubik: ["Rubik", "sans-serif"],
             },
         },
     },
-    plugins: [],
+    plugins: [require('flowbite/plugin')],
 };
