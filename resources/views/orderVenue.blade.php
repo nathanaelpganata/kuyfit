@@ -3,7 +3,7 @@
 @section('title', 'Home')
 @section('content')
     <div class="">
-        <img class="w-full" src="{{ asset('images/basketball.png') }}" alt="my mvp damar">
+        <img class="w-full" src="{{ asset('/images/bgbasketball.png') }}" alt="my mvp damar">
     </div>
     <div class="-translate-y-[104px] flex w-full justify-center">
         <div class="w-[699px] h-[209px] flex bg-white shadow-2xl rounded-xl">
@@ -15,7 +15,7 @@
         </div>
     </div>
     {{-- Step Start --}}
-    <form x-data="{ step: 1 }" action="{{ request()->route('id') }}/store" method="POST" enctype="multipart/form-data">
+    <form x-data="{ step: 1, total: 0, multiplier: 1 }" action="{{ request()->route('id') }}/store" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{-- Step 1 --}}
         <div class="flex flex-row justify-center gap-[46px] pb-20" x-show="step==1">
@@ -24,7 +24,7 @@
             </div>
             <div class="flex flex-col ">
                 <h2 class="text-4xl font-bold">{{ $lapangan->venueName }}</h2>
-                <h3 class="text-3xl text-[#6E6F70]">Rp 150.000/jam</h3>
+                <h3 class="text-3xl text-[#6E6F70]">Rp 50.000/jam</h3>
                 <div class="flex gap-4 flex-row mt-3">
                     <img class="w-[25px]" src="{{ asset('images/logo/location.svg') }}" alt="description of myimage">
                     <div class="flex flex-col">
@@ -60,14 +60,14 @@
                             @endif
                             @if ($lapangan->canteen)
                                 <div class=" flex flex-row gap-4">
-                                    <img class="w-[25px]" src="{{ asset('images/logo/wifi.svg') }}"
+                                    <img class="w-[25px]" src="{{ asset('images/logo/canteen.svg') }}"
                                         alt="description of myimage">
                                     <p class="text-[#6E6F70] font-semibold">Kantin</p>
                                 </div>
                             @endif
                             @if ($lapangan->musalla)
                                 <div class="flex flex-row gap-4">
-                                    <img class="w-[25px]" src="{{ asset('images/logo/wifi.svg') }}"
+                                    <img class="w-[25px]" src="{{ asset('images/logo/musalla.jpg') }}"
                                         alt="description of myimage">
                                     <p class="text-[#6E6F70] font-semibold">Musalla</p>
                                 </div>
@@ -82,9 +82,9 @@
                         <p class="text-[#6E6F70] font-semibold">{{ $lapangan->oprTime }}</p>
                     </div>
                 </div>
-                <div class="btn flex my-5  w-[250px] h-[34px] bg-[#00B7FF] rounded-lg shadow-xl">
+                <div class="btn flex my-5  w-[250px] h-[34px] bg-[#00B7FF] rounded-lg shadow-xl hover:brightness-75">
                     <div class="m-auto">
-                        <div class="text-white/[0.78] cursor-pointer" @click="step=2">Pilih Jadwal</div>
+                        <div class="text-white cursor-pointer" @click="step=2">Pilih Jadwal</div>
                     </div>
                 </div>
             </div>
@@ -100,28 +100,130 @@
             <div class="flex flex-col items-center justify-center gap-10">
                 <div class="grid grid-cols-4 gap-2">
                     <div class="col-span-1">
-                        <input type="checkbox" class="hidden" name="hour[]" value="hour_1" id="hour_1">
-                        <label for='hour_1' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_5" id="hour_5">
+                        <label for='hour_5'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active">07:00</label>
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">05:00</label>
                     </div>
                     <div class="col-span-1">
-                        <input type="checkbox" class="hidden" name="hour[]" value="hour_2" id="hour_2">
-                        <label for='hour_2' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_6" id="hour_6">
+                        <label for='hour_6'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active">07:00</label>
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">06:00</label>
                     </div>
                     <div class="col-span-1">
-                        <input type="checkbox" class="hidden" name="hour[]" value="hour_3" id="hour_3">
-                        <label for='hour_3' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_7" id="hour_7">
+                        <label for='hour_7'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active">07:00</label>
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">07:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_8" id="hour_8">
+                        <label for='hour_8'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">08:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_9" id="hour_9">
+                        <label for='hour_9'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">09:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_10" id="hour_10">
+                        <label for='hour_10'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">10:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_11" id="hour_11">
+                        <label for='hour_11'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">11:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_12" id="hour_12">
+                        <label for='hour_12'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">12:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_13" id="hour_13">
+                        <label for='hour_13'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">13:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_14" id="hour_14">
+                        <label for='hour_14'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">14:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_15" id="hour_15">
+                        <label for='hour_15'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">15:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_16" id="hour_16">
+                        <label for='hour_16'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">16:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_17" id="hour_17">
+                        <label for='hour_17'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">17:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_18" id="hour_18">
+                        <label for='hour_18'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">18:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_19" id="hour_19">
+                        <label for='hour_19'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">19:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_20" id="hour_20">
+                        <label for='hour_20'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">20:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_21" id="hour_21">
+                        <label for='hour_21'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">21:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_22" id="hour_22">
+                        <label for='hour_22'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">22:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_23" id="hour_23">
+                        <label for='hour_23'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">23:00</label>
+                    </div>
+                    <div class="col-span-1">
+                        <input type="checkbox" class="hidden" name="hour[]" value="hour_24" id="hour_24">
+                        <label for='hour_24'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                            x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
+                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+50000 : total-50000">24:00</label>
                     </div>
                 </div>
                 <div class="flex flex-col justify-center items-center w-full">
                     <div class="flex flex-row items-center justify-between w-full text-lg font-semibold text-[#24B7F1]">
                         <p>Total</p>
-                        <p>Rp. 50.000</p>
+                        <p>Rp. <span  x-text="total"></span></p>
                     </div>
                     <p class="py-1.5 rounded-[4px] text-white font-semibold bg-[#00B7FF] mt-2 text-center cursor-pointer w-full shadow-sm shadow-black"
                         @click="step=3">Bayar</p>
@@ -190,7 +292,7 @@
                 <div class="flex flex-row justify-between items-center w-full">
                     <div class="flex flex-col">
                         <h2 class="text-sm font-semibold">Total</h2>
-                        <p class="text-lg text-[#00B7FF] font-bold">Rp. 50.0000</p>
+                        <p class="text-lg text-[#00B7FF] font-bold">Rp. <span  x-text="total"></span></p>
                     </div>
                     <div class="flex flex-col bg-white rounded-xl text-sm px-4 py-2 w-[224px]">
                         <h2 class="font-semibold">Account Number</h2>

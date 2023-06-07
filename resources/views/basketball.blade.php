@@ -25,20 +25,19 @@
             </div>
         </div>
         <div>
-            {{-- <div class="pt-32 flex px-[75px] justify-center space-x-4">
-                <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
-                    <img src="/images/lapbasketball.png" alt="">
-                    <h3 class="mt-5 mb-2 text-2xl font-bold tracking-tight text-[#363636] font-montserrat">Pandawa Basketball</h3>
-                    <div class="flex items-center space-x-2">
-                        <img src="/images/vectorlokasi.png" alt="">
-                        <p class="font-normal text-xl text-[#979797]">Jl. Nangka No. 05</p>
-                    </div>
-                </a>
-            </div> --}}
+            <div class="pt-32 flex px-[75px] justify-center space-x-4">
             @php($lapangans = \App\Models\Lapangan::where('sportId', '=', '1')->paginate(15))
             @foreach ($lapangans as $lapangan)
-                {{ $lapangan->venueName }}
-            @endforeach
+                <a href="/order/{{ $lapangan->id }}" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
+                    <img src="/images/lapbasketball.png" alt="">
+                    <h3 class="mt-5 mb-2 text-2xl font-bold tracking-tight text-[#363636] font-montserrat">{{ $lapangan->venueName }}</h3>
+                    <div class="flex items-center space-x-2">
+                        <img src="/images/vectorlokasi.png" alt="">
+                        <p class="font-normal text-xl text-[#979797]">{{ $lapangan->address }}</p>
+                    </div>
+                </a>
+                @endforeach
+            </div>
 
             {{ $lapangans->links() }}
             <div class="my-10 mx-28">

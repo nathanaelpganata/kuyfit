@@ -29,12 +29,5 @@
         class="w-6 h-6 {{ Route::currentRouteName() == 'dashboard.lapangan' || Route::is('dashboard.lapangan.*') ? 'bg-white text-black' : 'bg-transparent text-white hover:bg-white/50 hover:text-black' }}"
       />Lapangan</a
     >
-    <a
-      href="{{ route('dashboard.bank') }}"
-      class="flex items-center gap-2 font-semibold p-[10px] rounded-[10px] hover:bg-gradient-green-br {{ Route::currentRouteName() == 'dashboard.bank' || Route::is('dashboard.bank.*') ? 'bg-white text-black' : 'bg-transparent text-white hover:bg-white/50' }}"
-      ><x-heroicon-s-building-library
-        class="w-6 h-6 {{ Route::currentRouteName() == 'dashboard.bank' || Route::is('dashboard.bank.*') ? 'bg-white text-black' : 'bg-transparent text-white hover:bg-white/50 hover:text-black' }}"
-      />Opsi Bank</a
-    >
   </div>
 </div>

@@ -9,11 +9,9 @@ use App\Http\Controllers\Register;
 use App\Http\Controllers\Badminton;
 use App\Http\Controllers\VenueOrder;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardBank;
 use App\Http\Controllers\DashboardHome;
 use App\Http\Controllers\DashboardPesanan;
 use App\Http\Controllers\DashboardLapangan;
-use App\Http\Controllers\DashboardBankTambah;
 use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Explore;
 use App\Http\Controllers\ReceiveOrderController;
@@ -54,6 +52,11 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth.kuyfit'])->group(function () {
     Route::get('/logout', [Login::class, 'logout'])->name('logout.index');
 
+    // Order
+    Route::get('/order/{id}', [VenueOrder::class, 'index']);
+    Route::post('/order/{id}/store', [VenueOrder::class, 'store']);
+
+
     Route::prefix('/my')->group(function () {
         // Home
         Route::get('/', [ReceiveOrderController::class, 'showDashboard'])->name('dashboard.home');
@@ -70,14 +73,5 @@ Route::middleware(['auth.kuyfit'])->group(function () {
         Route::get('/lapangan/{id}/edit', [DashboardLapangan::class, 'edit'])->name('dashboard.lapangan.edit');
         Route::put('/lapangan/{id}', [DashboardLapangan::class, 'update'])->name('dashboard.lapangan.update');
         Route::delete('/lapangan/{id}', [DashboardLapangan::class, 'destroy'])->name('dashboard.lapangan.destroy');
-        // Bank
-        Route::get('/bank', [DashboardBank::class, 'index'])->name('dashboard.bank');
-        Route::get('/bank/tambah', [DashboardBankTambah::class, 'index'])->name('dashboard.bank.tambah');
-
-        Route::get('/my', [ReceiveOrderController::class, 'showDashboard'])->name('dashboard.home');
-        // Pesanan
-        Route::get('/my/pesanan', [ReceiveOrderController::class, 'showOrders'])->name('dashboard.pesanan');
     });
-    Route::get('/order/{id}', [VenueOrder::class, 'index']);
-    Route::post('/order/{id}/store', [VenueOrder::class, 'store']);
 });

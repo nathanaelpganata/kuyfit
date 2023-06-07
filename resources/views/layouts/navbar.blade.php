@@ -8,10 +8,16 @@
         <a href="/explore" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Explore</a>
         <a href="/myorders" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Order</a>
     </div>
+    @if(Auth::check())
+    <div class="space-x-8">
+        <a href="/profil">{{ Auth::user()->email }}</a>
+    </div>
+    @else
     <div class="space-x-8">
         <a href="/login">Login</a>
         <a href="/register" class="bg-[#01B2FE] px-4 py-3 rounded-xl">Sign up</a>
     </div>
+    @endif
 </nav>
 <style>
     .navbar-scroll {

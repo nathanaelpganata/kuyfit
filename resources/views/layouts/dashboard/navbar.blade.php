@@ -3,7 +3,7 @@
     <div class="relative">
         <div class="flex items-center md:order-2 gap-x-2 peer">
             <x-heroicon-s-user class="w-6 h-6 text-white" />
-            {{-- <p class="font-montserrat text-white text-sm" href="#">{{ Auth::user()->email }}</p> --}}
+            <p class="font-montserrat text-white text-sm" href="#">{{ Auth::user()->email }}</p>
             <x-heroicon-s-chevron-down class="w-4 h-4 text-white" />
         </div>
         <div
