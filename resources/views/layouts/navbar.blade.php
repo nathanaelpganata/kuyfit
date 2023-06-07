@@ -4,13 +4,13 @@
         <img src="/images/kuyfitlogotulisan.png" alt="Logo" class="h-14"><a href="/" class="text-"></a>
     </div>
     <div class="space-x-8">
-        <a href="#" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Home</a>
-        <a href="#" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Explore</a>
-        <a href="#" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Order</a>
+        <a href="/" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Home</a>
+        <a href="/explore" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Explore</a>
+        <a href="/myorders" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Order</a>
     </div>
     <div class="space-x-8">
-        <a href="#">Login</a>
-        <a href="#" class="bg-[#01B2FE] px-4 py-3 rounded-xl">Sign up</a>
+        <a href="/login">Login</a>
+        <a href="/register" class="bg-[#01B2FE] px-4 py-3 rounded-xl">Sign up</a>
     </div>
 </nav>
 <style>

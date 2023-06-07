@@ -5,9 +5,9 @@
         </div>
         <nav class="flex flex-col items-start mt-20 font-poppins">
             <a class="mb-4 mr-4 text-xl font-bold">Menu</a>
-            <a href="#" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">Home</a>
-            <a href="#" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">Explore</a>
-            <a href="#" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">Orders</a>
+            <a href="/" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">Home</a>
+            <a href="/explore" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">Explore</a>
+            <a href="/myorders" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">Orders</a>
         </nav>
         <nav class="flex flex-col items-start mt-20 mr-9 font-poppins">
             <a class="mb-4 mr-4 text-xl font-bold">Contact Info</a>
