@@ -169,20 +169,6 @@
     </div>
   </div>
 
-  <footer class="footer">
-    <img src="images/logokuyfit.png" alt="Logo">
-    <div class="menu">
-      <a href="#">Menu</a>
-      <a href="#">Home</a>
-      <a href="#">Explore</a>
-      <a href="#">Orders</a>
-    </div>
-    <div class="contact-info">
-      Contact Info: kuyfit@gmail.com
-    </div>
-    <div class="location">
-      Keputih, Surabaya
-    </div>
-  </footer>
+  
 </body>
 </html>
