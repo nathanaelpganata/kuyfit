@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Basket extends Controller
+class Profile extends Controller
 {
     public function index()
     {
-        return view('basket');
+        return view('profile');
     }
 }

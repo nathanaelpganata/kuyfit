@@ -38,7 +38,7 @@
                             id="sportId" name="sportId"
                             class="w-[575px] appearance-none h-[53px] rounded-lg bg-[#3F95C5] focus:outline-none px-3  placeholder:text-white/[0.3] font-bold text-white/[0.3]">
                             <option selected>Pilih jenis venue anda</option>
-                            <option value="1">Basket</option>
+                            <option value="1">Basketball</option>
                             <option value="2">Futsal</option>
                             <option value="3">Badminton</option>
                         </select>

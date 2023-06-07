@@ -19,7 +19,7 @@
                     class="px-3 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400"
                     placeholder="Insert your Password here." name="password">
                 <button type="submit"
-                    class="py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600">Login</button>
+                    class="py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-[#01B2FE] w-[150px]">Login</button>
             </form>
             <div class="flex flex-col justify-center mt-6">
                 <p class="text-lg">Don't have an account? <a href="#" class="text-blue-500 hover:underline">Sign

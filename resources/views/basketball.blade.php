@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title', 'Basket')
+@section('title', 'Basketball')
 
 @section('custom-style')
     <style>
@@ -13,13 +13,13 @@
 @section('content')
     <div class="flex flex-col w-full">
         <div class="relative w-full">
-            <img src="/images/bgbasket.png" alt="" srcset="" class="w-full">
+            <img src="/images/bgbasketball.png" alt="" srcset="" class="w-full">
             <div
                 class="w-[700px] rounded-xl px-16 py-8 bottom-[-80px] absolute ml-auto mr-auto left-0 right-0 bg-white shadow-lg">
                 <div class="bg-[#80D8FB] w-[560px] h-[129px] flex rounded-xl shadow-xl m-auto font-rubik">
                     <div class="flex m-auto space-x-4">
-                        <img src="/images/vectorbasket.png" alt="">
-                        <h1 class="text-6xl font-bold">Basket</h1>
+                        <img src="/images/vectorbasketball.png" alt="">
+                        <h1 class="text-6xl font-bold">Basketball</h1>
                     </div>
                 </div>
             </div>
@@ -27,8 +27,8 @@
         <div>
             {{-- <div class="pt-32 flex px-[75px] justify-center space-x-4">
                 <a href="#" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
-                    <img src="/images/lapbasket.png" alt="">
-                    <h3 class="mt-5 mb-2 text-2xl font-bold tracking-tight text-[#363636] font-montserrat">Pandawa Basket</h3>
+                    <img src="/images/lapbasketball.png" alt="">
+                    <h3 class="mt-5 mb-2 text-2xl font-bold tracking-tight text-[#363636] font-montserrat">Pandawa Basketball</h3>
                     <div class="flex items-center space-x-2">
                         <img src="/images/vectorlokasi.png" alt="">
                         <p class="font-normal text-xl text-[#979797]">Jl. Nangka No. 05</p>

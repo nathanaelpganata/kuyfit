@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             [
                 [
                     'id' => 1,
-                    'sportType' => 'Basket',
+                    'sportType' => 'Basketball',
                 ],
                 [
                     'id' => 2,

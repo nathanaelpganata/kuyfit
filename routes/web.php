@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\Login;
-use App\Http\Controllers\Basket;
+use App\Http\Controllers\Basketball;
 use App\Http\Controllers\Futsal;
-use App\Http\Controllers\Profil;
+use App\Http\Controllers\Profile;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Badminton;
@@ -34,9 +34,9 @@ use App\Http\Controllers\MyOrders;
 // User
 Route::get('/', [Landing::class, 'index'])->name('landing');
 Route::get('/explore', [Explore::class, 'index'])->name('Explore');
-Route::get('/profil', [Profil::class, 'index'])->name('profil');
+Route::get('/profile', [Profile::class, 'index'])->name('profile');
 Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
-Route::get('/explore/basket', [Basket::class, 'index'])->name('basket');
+Route::get('/explore/basketball', [Basketball::class, 'index'])->name('basketball');
 Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
 Route::get('/myorders', [MyOrders::class, 'index'])->name('MyOrders');
 

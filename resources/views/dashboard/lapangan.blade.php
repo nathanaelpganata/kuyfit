@@ -95,7 +95,7 @@
                             {{ $l->photo }}
                         </td>
                         <td class="px-6 py-4">
-                          @if($l->sportId == 1) <span>basket</span> @elseif($l->sportId == 2) <span>futsal</span> @else <span>badminton</span> @endif
+                          @if($l->sportId == 1) <span>basketball</span> @elseif($l->sportId == 2) <span>futsal</span> @else <span>badminton</span> @endif
                         </td>
                         <td class="px-6 py-4">
                             {{ $l->timeStamp }}

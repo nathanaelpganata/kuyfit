@@ -12,7 +12,7 @@
         <nav class="flex flex-col items-start mt-20 mr-9 font-poppins">
             <a class="mb-4 mr-4 text-xl font-bold">Contact Info</a>
             <a href="mailto:kuyfit@gmail.com" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">kuyfit@gmail.com</a>
-            <a href="https://maps.google.com?q=Keputih, Surabaya" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">Keputih, Surabaya</a>
+            <a href="https://www.google.com/maps?q=DepartemenSIstemInformasiITS, Surabaya" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">Keputih, Surabaya</a>
             <a href="tel:+123456789" class="mr-4 text-lg text-white hover:underline underline-offset-4 decoration-[#FFFFFF] decoration-2">+123 456 789</a>
         </nav>
     </div>

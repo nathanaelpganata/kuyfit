@@ -3,7 +3,7 @@
 @section('title', 'Home')
 @section('content')
     <div class="">
-        <img class="w-full" src="{{ asset('images/basket.png') }}" alt="my mvp damar">
+        <img class="w-full" src="{{ asset('images/basketball.png') }}" alt="my mvp damar">
     </div>
     <div class="-translate-y-[104px] flex w-full justify-center">
         <div class="w-[699px] h-[209px] flex bg-white shadow-2xl rounded-xl">
