@@ -67,6 +67,16 @@
                         placeholder="Masukkan alamat lapangan anda" type="text" >
                 </div>
                 <div class="flex flex-row gap-[75px] content-center">
+                    <div class="w-48 flex content-center">
+                        <label for="price" class="flex items-center justify-center text-white font-semibold text-lg">Harga</label>
+                    </div>
+                    <input
+                        value="{{ $lapangan['price'] }}"
+                        id="price" name="price"
+                        class="w-[575px] h-[53px] rounded-lg bg-[#3F95C5] focus:outline-none px-3  placeholder:text-white/[0.3] font-bold text-white"
+                        placeholder="Masukkan harga lapangan anda per jam" type="number" >
+                </div>
+                <div class="flex flex-row gap-[75px] content-center">
                     <div  class="w-48 flex content-center">
                         <label for="telp" class="flex items-center justify-center text-white font-semibold text-lg">No Telepon</label>
                     </div>

@@ -29,6 +29,9 @@
                             Waktu Pemesanan
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Harga Total
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Status
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -55,6 +58,9 @@
                                 {{ $order->schedule }}
                             </td>
                             <td class="px-6 py-4">
+                                {{ $order->totalPrice }}
+                            </td>
+                            <td class="px-6 py-4">
                                 {{ $order->status }}
                             </td>
                             <td class="px-6 py-4">
@@ -69,7 +75,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="mx-10 my-6">
+        {{ $orders->links() }}
+        {{-- <div class="mx-10 my-6">
             <nav class="flex justify-end">
                 <ul class="inline-flex items-center space-x-2 text-base">
                     <li>
@@ -106,6 +113,6 @@
                     </li>
                 </ul>
             </nav>
-        </div>
+        </div> --}}
     </div>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.only-layout')
 
 @section('title', 'Signin')
 @section('content')
@@ -18,11 +18,16 @@
                 <input type="password"
                     class="px-3 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400"
                     placeholder="Insert your Password here." name="password">
+                    @if(session('error'))
+                        <div class="text-sm text-red-600">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                 <button type="submit"
                     class="py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-[#01B2FE] w-[150px]">Login</button>
             </form>
             <div class="flex flex-col justify-center mt-6">
-                <p class="text-lg">Don't have an account? <a href="#" class="text-blue-500 hover:underline">Sign
+                <p class="text-lg">Don't have an account? <a href="register" class="text-blue-500 hover:underline">Sign
                         up</a></p>
                 <a href="/" class="mt-4 text-lg hover:underline">Back to home</a>
             </div>

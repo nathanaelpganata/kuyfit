@@ -16,6 +16,7 @@ class PesananSewaLapangan extends Model
         'ownerId',
         'bankId',
         'scheduleId',
+        'totalPrice',
         'timeStamp',
         'paymentProof',
         'deadline',
@@ -34,11 +35,6 @@ class PesananSewaLapangan extends Model
     public function akunPemilikLapangan()
     {
         return $this->belongsTo(AkunPemilikLapangan::class, 'ownerId');
-    }
-
-    public function opsiBank()
-    {
-        return $this->belongsTo(OpsiBank::class, 'bankId');
     }
 
     public function jadwalSewaLapangan()

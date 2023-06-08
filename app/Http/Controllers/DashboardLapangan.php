@@ -11,7 +11,8 @@ class DashboardLapangan extends Controller
 {
     public function index()
     {
-        $lapangan = Lapangan::all();
+        $ownerId = Auth::id();
+        $lapangan = Lapangan::where('ownerId', $ownerId)->paginate(10);
         return view('dashboard.lapangan', compact('lapangan'));
     }
     public function create()
@@ -32,6 +33,7 @@ class DashboardLapangan extends Controller
             'venueName' => 'required',
             'oprTime' => 'required',
             'address' => 'required',
+            'price' => 'required',
             'phoneNumber' => 'required',
             'wifi' => 'required',
             'toilet' => 'required',
@@ -41,9 +43,7 @@ class DashboardLapangan extends Controller
             'sportId' => 'required',
         ]);
 
-        // !! Uncomment
-        // $request['ownerId'] = Auth::user()->id;
-        $request['ownerId'] = 1;
+        $request['ownerId'] = Auth::user()->id;
 
         Lapangan::create($request->all());
 
@@ -77,6 +77,7 @@ class DashboardLapangan extends Controller
             'venueName' => 'required',
             'oprTime' => 'required',
             'address' => 'required',
+            'price' => 'required',
             'phoneNumber' => 'required',
             'wifi' => 'required',
             'toilet' => 'required',
@@ -85,9 +86,7 @@ class DashboardLapangan extends Controller
             'photo' => 'required',
             'sportId' => 'required',
         ]);
-        // !! Uncomment
-        // $request['ownerId'] = Auth::user()->id;
-        $request['ownerId'] = 1;
+        $request['ownerId'] = Auth::user()->id;
 
         $lapangan = Lapangan::find($id);
         $lapangan->update($request->all());

@@ -34,7 +34,7 @@
                             <label for="nama" class="text-white font-bold mb-1 pr-4">Nama Pemesan</label>
                         </div>
                         <div class="w-2/3">
-                            <input id="nama" type="text" name="nama" class="bg-[#3F95C5] border-4 border-none rounded-lg w-full py-2 px-4 text-white leading-tight hover:brightness-110 focus:bg-white focus:outline-[#3F95C5] focus:text-black disabled:brightness-95" value="{{ $detail->firstName . " " . $detail->lastName }}" disabled>
+                            <input id="nama" type="text" name="nama" class="bg-[#3F95C5] border-4 border-none rounded-lg w-full py-2 px-4 text-white leading-tight hover:brightness-110 focus:bg-white focus:outline-[#3F95C5] focus:text-black disabled:brightness-95" value="{{ $detail->akunPenyewa->firstName . " " . $detail->akunPenyewa->lastName }}" disabled>
                         </div>
                     </div>
                     <div class="flex flex-row items-center mb-6">
@@ -42,7 +42,7 @@
                             <label for="tanggal-pesanan" class="text-white font-bold mb-1 pr-8">Waktu/Tanggal Pemesanan</label>
                         </div>
                         <div class="w-2/3">
-                            <input id="tanggal-pesanan" type="datetime" name="tanggal-pesanan" class="bg-[#3F95C5] border-4 border-none rounded-lg w-full py-2 px-4 text-white leading-tight hover:brightness-110 focus:bg-white focus:outline-[#3F95C5] focus:text-black disabled:brightness-95" value="{{ $detail->timeStart . " - " . $detail->timeEnd . ", " . $detail->date}}" disabled>
+                            <input id="tanggal-pesanan" type="datetime" name="tanggal-pesanan" class="bg-[#3F95C5] border-4 border-none rounded-lg w-full py-2 px-4 text-white leading-tight hover:brightness-110 focus:bg-white focus:outline-[#3F95C5] focus:text-black disabled:brightness-95" value="{{ $detail->schedule }}" disabled>
                         </div>
                     </div>
                     <div class="flex flex-row items-center mb-6">
@@ -50,7 +50,15 @@
                             <label for="venue" class="text-white font-bold mb-1 pr-4">Nama Venue</label>
                         </div>
                         <div class="w-2/3">
-                            <input id="venue" type="text" name="venue" class="bg-[#3F95C5] border-4 border-none rounded-lg w-full py-2 px-4 text-white leading-tight hover:brightness-110 focus:bg-white focus:outline-[#3F95C5] focus:text-black disabled:brightness-95" value="{{ $detail->venueName }}" disabled>
+                            <input id="venue" type="text" name="venue" class="bg-[#3F95C5] border-4 border-none rounded-lg w-full py-2 px-4 text-white leading-tight hover:brightness-110 focus:bg-white focus:outline-[#3F95C5] focus:text-black disabled:brightness-95" value="{{ $detail->lapangan->venueName }}" disabled>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-center mb-6">
+                        <div class="w-1/3">
+                            <label for="venue" class="text-white font-bold mb-1 pr-4">Harga Total</label>
+                        </div>
+                        <div class="w-2/3">
+                            <input id="venue" type="text" name="venue" class="bg-[#3F95C5] border-4 border-none rounded-lg w-full py-2 px-4 text-white leading-tight hover:brightness-110 focus:bg-white focus:outline-[#3F95C5] focus:text-black disabled:brightness-95" value="{{ $detail->totalPrice }}" disabled>
                         </div>
                     </div>
                     <div class="flex flex-row items-center mb-6">
@@ -73,7 +81,7 @@
                 </form>
             </div>
         </div>
-        
+
     </div>
 
     @endforeach

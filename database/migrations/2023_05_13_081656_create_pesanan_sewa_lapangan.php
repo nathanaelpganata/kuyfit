@@ -16,9 +16,10 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('renterId')->unsigned()->index('idx_renterId');
             $table->integer('ownerId')->unsigned();
-            $table->integer('bankId')->unsigned()->index('idx_bankId');
+            $table->string('bankId');
             $table->integer('lapanganId')->unsigned();
             $table->string('schedule');
+            $table->integer('totalPrice')->unsigned();
             $table->timestamp('timeStamp')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('paymentProof');
             $table->dateTime('deadline');
@@ -26,7 +27,6 @@ return new class extends Migration
             $table->index(['ownerId', 'status'], 'idx_ownerId_status');
             $table->foreign('renterId')->references('id')->on('akun_penyewa');
             $table->foreign('ownerId')->references('id')->on('akun_pemilik_lapangan');
-            $table->foreign('bankId')->references('id')->on('opsi_bank');
             $table->foreign('lapanganId')->references('id')->on('lapangan');
         });
     }

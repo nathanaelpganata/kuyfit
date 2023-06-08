@@ -10,6 +10,7 @@ class VenueOrder extends Controller
         'date' => 'required',
         'hour' => 'required',
         'bank' => 'required',
+        'totalPrice' => 'required',
         'bukti_pembayaran' => 'required',
     ];
 
@@ -41,9 +42,9 @@ class VenueOrder extends Controller
 
         $venueOrder->renterId = auth()->user()->id;
         $venueOrder->ownerId = $this->lapangan->ownerId;
-        $venueOrder->bankId = 1;
+        $venueOrder->totalPrice = $validatedData['totalPrice'];
         $venueOrder->schedule = $validatedData['date'] . " - " . implode(',', $validatedData['hour']);
-        // $venueOrder->bank = $validatedData['bank'];
+        $venueOrder->bankId = $validatedData['bank'];
         $venueOrder->paymentProof = $validatedData['bukti_pembayaran'];
         $venueOrder->deadline = date('Y-m-d H:i:s', strtotime($validatedData['date'] . ' + 1 day'));
         $venueOrder->status = 'pending';
@@ -51,6 +52,6 @@ class VenueOrder extends Controller
 
         $venueOrder->save();
 
-        return redirect()->route('my.orders');
+        return redirect()->route('myorders');
     }
 }

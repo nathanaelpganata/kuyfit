@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.only-layout')
 
 @section('title', 'Register')
 @section('content')

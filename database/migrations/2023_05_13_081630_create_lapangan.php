@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('oprTime', 32);
             $table->string('address', 32);
             $table->string('phoneNumber', 16);
+            $table->integer('price')->unsigned();
             $table->boolean('wifi');
             $table->boolean('toilet');
             $table->boolean('canteen');

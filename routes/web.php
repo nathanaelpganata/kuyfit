@@ -28,18 +28,10 @@ use App\Http\Controllers\MyOrders;
 |
 */
 
-
-// User
-Route::get('/', [Landing::class, 'index'])->name('landing');
-Route::get('/explore', [Explore::class, 'index'])->name('Explore');
-Route::get('/profile', [Profile::class, 'index'])->name('profile');
-Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
-Route::get('/explore/basketball', [Basketball::class, 'index'])->name('basketball');
-Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
-Route::get('/myorders', [MyOrders::class, 'index'])->name('MyOrders');
-
-
 Route::middleware(['guest'])->group(function () {
+    Route::get('/', function() {
+        return view("landingGuest");
+    });
     // Auth
     Route::get('/login', [Login::class, 'index'])->name('login.index');
     Route::post('/login', [Login::class, 'login'])->name('login.store');
@@ -50,12 +42,22 @@ Route::middleware(['guest'])->group(function () {
 
 // Dashboard
 Route::middleware(['auth.kuyfit'])->group(function () {
-    Route::get('/logout', [Login::class, 'logout'])->name('logout.index');
+    // User Penyewa
+    Route::get('/home', [Landing::class, 'index'])->name('landing');
+    Route::get('/myorders', [MyOrders::class, 'index'])->name('myorders');
+    // Explore
+    Route::get('/explore', [Explore::class, 'index'])->name('Explore');
+    Route::get('/profile', [Profile::class, 'showRenterProfile'])->name('profile');
+    Route::put('/profile/{id}/edit', [Profile::class, 'updateRenterProfile'])->name('profile.update ');
 
+    Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
+    Route::get('/explore/basketball', [Basketball::class, 'index'])->name('basketball');
+    Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
     // Order
     Route::get('/order/{id}', [VenueOrder::class, 'index']);
     Route::post('/order/{id}/store', [VenueOrder::class, 'store']);
 
+    Route::get('/logout', [Login::class, 'logout'])->name('logout.index');
 
     Route::prefix('/my')->group(function () {
         // Home

@@ -15,6 +15,7 @@ class Lapangan extends Model
         'venueName',
         'oprTime',
         'address',
+        'price',
         'phoneNumber',
         'wifi',
         'toilet',

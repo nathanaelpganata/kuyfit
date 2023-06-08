@@ -75,7 +75,7 @@
 
             .option .description {
                 width: 558px;
-                height: 190px;
+                height: max-content;
                 background-color: #f9f9f9;
                 display: flex;
                 flex-direction: column;
@@ -97,7 +97,7 @@
 
             .option .go-button {
                 font-family: 'Rubik', sans-serif;
-                font-size: 12px;
+                font-size: 24px;
                 color: #00bfff;
                 cursor: pointer;
             }

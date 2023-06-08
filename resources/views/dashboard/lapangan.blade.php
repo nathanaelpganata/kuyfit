@@ -33,6 +33,9 @@
                             Address
                         </th>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
+                            Price
+                        </th>
+                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
                             Phone Num.
                         </th>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
@@ -77,6 +80,9 @@
                             {{ $l->address }}
                         </td>
                         <td class="px-6 py-4">
+                           <span>Rp.{{ $l->price }}</span>
+                        </td>
+                        <td class="px-6 py-4">
                             {{ $l->phoneNumber }}
                         </td>
                         <td class="px-6 py-4 text-white font-medium">
@@ -108,7 +114,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="mx-10 my-6">
+        {{ $lapangan->links() }}
+        {{-- <div class="mx-10 my-6">
             <nav class="flex justify-end">
                 <ul class="inline-flex items-center space-x-2 text-base">
                 <li>
@@ -131,7 +138,7 @@
                 </li>
                 </ul>
             </nav>
-        </div>
+        </div> --}}
     </div>
 @endsection
 

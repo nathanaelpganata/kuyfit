@@ -26,9 +26,13 @@ class Login extends Controller
 
         if (!$penyewaAttempt && !$pemilikAttempt)
             return redirect()->route('login.index')->with('error', 'Email atau password salah');
-        
+
         session()->regenerate();
-        return redirect()->route('dashboard.home');
+        if ($pemilikAttempt) {
+            return redirect()->route('dashboard.home');
+        } else if($penyewaAttempt) {
+            return redirect()->route('landing');
+        }
     }
 
     public function logout(Request $request)
