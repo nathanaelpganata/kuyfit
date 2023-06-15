@@ -87,54 +87,20 @@
         </div>
         <div class="swiper Swiperku">
             <div class="flex swiper-wrapper mt-12  flex-row">
-                <div class="w-[460px] z-10 h-[610px] relative bg-black[/0.4] swiper-slide">
-                    <img class="object-cover z-10 w-[460px] h-[610px] rounded-2xl"
-                        src="{{ asset('/images/bahskara-landing.jpeg') }}" alt="">
-                    <div class="flex absolute left-4 bottom-12 flex-col">
-                        <h1 class="font-playfair text-[28px] text-white">Bhaskara Futsal Arena</h1>
-                        <div class="flex gap-3 flex-row text-white font-rubik text-2xl">
-                            <img class="w-8 h-8 -translate-x-2" src="{{ asset('/images/logo-location.svg') }}"
-                                alt="">
-                            <h1>Manyar, Surabaya</h1>
+                @foreach ($lapangan as $l)
+                    <div class="w-[460px] z-10 h-[610px] relative bg-black[/0.4] swiper-slide">
+                        <img class="object-cover z-10 w-[460px] h-[610px] rounded-2xl"
+                            src="{{ $l->photo }}" alt="">
+                        <div class="flex absolute left-4 bottom-12 flex-col">
+                            <h1 class="font-playfair text-[28px] text-white">{{ $l->venueName }}</h1>
+                            <div class="flex gap-3 flex-row text-white font-rubik text-2xl">
+                                <img class="w-8 h-8 -translate-x-2" src="{{ asset('/images/logo-location.svg') }}"
+                                    alt="">
+                                <h1>{{ $l->address }}</h1>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="w-[460px] z-10 h-[610px] relative bg-black[/0.4] swiper-slide">
-                    <img class="object-cover z-10 w-[460px] h-[610px] rounded-2xl"
-                        src="{{ asset('/images/bahskara-landing.jpeg') }}" alt="">
-                    <div class="flex absolute left-4 bottom-12 flex-col">
-                        <h1 class="font-playfair text-[28px] text-white">Bhaskara Futsal Arena</h1>
-                        <div class="flex gap-3 flex-row text-white font-rubik text-2xl">
-                            <img class="w-8 h-8 -translate-x-2" src="{{ asset('/images/logo-location.svg') }}"
-                                alt="">
-                            <h1>Manyar, Surabaya</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-[460px] z-10 h-[610px] relative bg-black[/0.4] swiper-slide">
-                    <img class="object-cover z-10 w-[460px] h-[610px] rounded-2xl"
-                        src="{{ asset('/images/bahskara-landing.jpeg') }}" alt="">
-                    <div class="flex absolute left-4 bottom-12 flex-col">
-                        <h1 class="font-playfair text-[28px] text-white">Bhaskara Futsal Arena</h1>
-                        <div class="flex gap-3 flex-row text-white font-rubik text-2xl">
-                            <img class="w-8 h-8 -translate-x-2" src="{{ asset('/images/logo-location.svg') }}"
-                                alt="">
-                            <h1>Manyar, Surabaya</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-[460px] z-10 h-[610px] relative bg-black[/0.4] swiper-slide">
-                    <img class="object-cover z-10 w-[460px] h-[610px] rounded-2xl"
-                        src="{{ asset('/images/bahskara-landing.jpeg') }}" alt="">
-                    <div class="flex absolute left-4 bottom-12 flex-col">
-                        <h1 class="font-playfair text-[28px] text-white">Bhaskara Futsal Arena</h1>
-                        <div class="flex gap-3 flex-row text-white font-rubik text-2xl">
-                            <img class="w-8 h-8 -translate-x-2" src="{{ asset('/images/logo-location.svg') }}"
-                                alt="">
-                            <h1>Manyar, Surabaya</h1>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="">
@@ -167,114 +133,34 @@
             </div>
             <div class="swiper Swiperku">
                 <div class="flex swiper-wrapper mt-12  flex-row">
-                    <div class="w-[460px] z-10 h-[610px] rounded-2xl relative bg-black[/0.4] swiper-slide">
-                        <div class="bg-[#FFF8F1] w-[460px]  rounded-2xl flex flex-col">
-                            <img class="z-10 w-[460px] h-[230px] rounded-t-2xl"
-                            src="{{ asset('/images/bahskara-landing.jpeg') }}" alt="">
-                            <div class="px-6 py-4">
-                            <h1 class="text-[#767E86] font-montserrat font-semibold text-[28px]">Grand Badminton Hall</h1>
-                            <div class="flex flex-row gap-2 mt-2">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                            </div>
-                            <p class="text-[#172432] text-lg w-[389px] font-rubik mt-4">
-                                5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the
-                                renaissance. Passage and going through the cites of the world in classical literature.
-                            </p>
-                            <div class="flex flex-row gap-2 mt-12 items-center">
-                                <p class="text-[#767E86] font-rubik text-xl">From</p>
-                                <p class="text-[#01B2FE] font-rubik text-[32px] mr-[25px]">Rp50.000</p>
-                                <div class="w-[159px] flex justify-center items-center rounded-lg h-16 bg-[#01B2FE]">
-                                    <h1 class="font-rubik  text-white text-xl">DETAILS</h1>
+                    @foreach ($lapangan as $l)
+                        <div class="w-[460px] z-10 h-[610px] rounded-2xl relative bg-black[/0.4] swiper-slide">
+                            <div class="bg-[#FFF8F1] w-[460px]  rounded-2xl flex flex-col">
+                                <img class="z-10 w-[460px] h-[230px] rounded-t-2xl"
+                                src="{{ $l->photo }}" alt="">
+                                <div class="px-6 py-4">
+                                <h1 class="text-[#767E86] font-montserrat font-semibold text-[28px]">Grand Badminton Hall</h1>
+                                <div class="flex flex-row gap-2 mt-2">
+                                    <img src="{{ asset('/images/star.svg') }}" alt="">
+                                    <img src="{{ asset('/images/star.svg') }}" alt="">
+                                    <img src="{{ asset('/images/star.svg') }}" alt="">
+                                    <img src="{{ asset('/images/star.svg') }}" alt="">
+                                    <img src="{{ asset('/images/star.svg') }}" alt="">
+                                </div>
+                                <p class="text-[#172432] text-lg w-[389px] font-rubik mt-4">
+                                    {{ $l->address }}
+                                </p>
+                                <div class="flex flex-row gap-2 mt-12 items-center">
+                                    <p class="text-[#767E86] font-rubik text-xl">From</p>
+                                    <p class="text-[#01B2FE] font-rubik text-[32px] mr-[25px]">{{ $l->price }}</p>
+                                    <div class="w-[159px] flex justify-center items-center rounded-lg h-16 bg-[#01B2FE]">
+                                        <a class="font-rubik  text-white text-xl" href="/explore">DETAILS</a>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="w-[460px] z-10 h-[610px] rounded-2xl relative bg-black[/0.4] swiper-slide">
-                        <div class="bg-[#FFF8F1] w-[460px]  rounded-2xl flex flex-col">
-                            <img class="z-10 w-[460px] h-[230px] rounded-t-2xl"
-                            src="{{ asset('/images/bahskara-landing.jpeg') }}" alt="">
-                            <div class="px-6 py-4">
-                            <h1 class="text-[#767E86] font-montserrat font-semibold text-[28px]">Grand Badminton Hall</h1>
-                            <div class="flex flex-row gap-2 mt-2">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                            </div>
-                            <p class="text-[#172432] text-lg w-[389px] font-rubik mt-4">
-                                5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the
-                                renaissance. Passage and going through the cites of the world in classical literature.
-                            </p>
-                            <div class="flex flex-row gap-2 mt-12 items-center">
-                                <p class="text-[#767E86] font-rubik text-xl">From</p>
-                                <p class="text-[#01B2FE] font-rubik text-[32px] mr-[25px]">Rp50.000</p>
-                                <div class="w-[159px] flex justify-center items-center rounded-lg h-16 bg-[#01B2FE]">
-                                    <h1 class="font-rubik  text-white text-xl">DETAILS</h1>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-[460px] z-10 h-[610px] rounded-2xl relative bg-black[/0.4] swiper-slide">
-                        <div class="bg-[#FFF8F1] w-[460px]  rounded-2xl flex flex-col">
-                            <img class="z-10 w-[460px] h-[230px] rounded-t-2xl"
-                            src="{{ asset('/images/bahskara-landing.jpeg') }}" alt="">
-                            <div class="px-6 py-4">
-                            <h1 class="text-[#767E86] font-montserrat font-semibold text-[28px]">Grand Badminton Hall</h1>
-                            <div class="flex flex-row gap-2 mt-2">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                            </div>
-                            <p class="text-[#172432] text-lg w-[389px] font-rubik mt-4">
-                                5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the
-                                renaissance. Passage and going through the cites of the world in classical literature.
-                            </p>
-                            <div class="flex flex-row gap-2 mt-12 items-center">
-                                <p class="text-[#767E86] font-rubik text-xl">From</p>
-                                <p class="text-[#01B2FE] font-rubik text-[32px] mr-[25px]">Rp50.000</p>
-                                <div class="w-[159px] flex justify-center items-center rounded-lg h-16 bg-[#01B2FE]">
-                                    <h1 class="font-rubik  text-white text-xl">DETAILS</h1>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-[460px] z-10 h-[610px] rounded-2xl relative bg-black[/0.4] swiper-slide">
-                        <div class="bg-[#FFF8F1] w-[460px]  rounded-2xl flex flex-col">
-                            <img class="z-10 w-[460px] h-[230px] rounded-t-2xl"
-                            src="{{ asset('/images/bahskara-landing.jpeg') }}" alt="">
-                            <div class="px-6 py-4">
-                            <h1 class="text-[#767E86] font-montserrat font-semibold text-[28px]">Grand Badminton Hall</h1>
-                            <div class="flex flex-row gap-2 mt-2">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                                <img src="{{ asset('/images/star.svg') }}" alt="">
-                            </div>
-                            <p class="text-[#172432] text-lg w-[389px] font-rubik mt-4">
-                                5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the
-                                renaissance. Passage and going through the cites of the world in classical literature.
-                            </p>
-                            <div class="flex flex-row gap-2 mt-12 items-center">
-                                <p class="text-[#767E86] font-rubik text-xl">From</p>
-                                <p class="text-[#01B2FE] font-rubik text-[32px] mr-[25px]">Rp50.000</p>
-                                <div class="w-[159px] flex justify-center items-center rounded-lg h-16 bg-[#01B2FE]">
-                                    <h1 class="font-rubik  text-white text-xl">DETAILS</h1>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

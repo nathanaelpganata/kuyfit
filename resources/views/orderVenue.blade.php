@@ -9,7 +9,7 @@
         <div class="w-[699px] h-[209px] flex bg-white shadow-2xl rounded-xl">
             <div class="bg-[#80D8FB] w-[560px] h-[129px] flex rounded-xl shadow-xl m-auto font-rubik">
                 <div class="m-auto">
-                    <h1 class="text-6xl font-bold">{{ $lapangan->venueName }}</h1>
+                    <h1 class="text-5xl font-bold text-center py-1">{{ $lapangan->venueName }}</h1>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
         {{-- Step 1 --}}
         <div class="flex flex-row justify-center gap-[46px] pb-20" x-show="step==1">
             <div class="w-[300px] h-[300px]">
-                <img class="rounded-xl" src="{{ asset('images/mayasi.png') }}" alt="lapangan">
+                <img class="rounded-xl" src="{{ $lapangan->photo }}" alt="lapangan">
             </div>
             <div class="flex flex-col ">
                 <h2 class="text-4xl font-bold">{{ $lapangan->venueName }}</h2>
@@ -292,13 +292,13 @@
                 <div class="flex flex-row justify-between items-center w-full">
                     <div class="flex flex-col">
                         <label for="totalPrice" class="text-sm font-semibold">Total</label>
-                        <span class="text-lg text-[#00B7FF] font-bold flex flex-row items-center gap-2">Rp.<input name="totalPrice" id="totalPrice" x-model="total" class="bg-transparent outline-none border-transparent select-none" type="number" ></input></span>
+                        <span class="text-lg text-[#00B7FF] font-bold flex flex-row items-center gap-2">Rp.<input name="totalPrice" id="totalPrice" x-model="total" class="bg-transparent outline-none border-transparent select-none" type="number"></input></span>
                     </div>
                     <div class="flex flex-col bg-white rounded-xl text-sm px-4 py-2 w-[224px]">
                         <h2 class="font-semibold">Account Number</h2>
                         <div class="flex flex-row justify-between w-full">
                             <p class="font-base">512512512515</p>
-                            <button class="text-[#00B7FF] font-semibold">Copy</button>
+                            <a href="#" class="text-[#00B7FF] font-semibold ml-2">Copy</a>
                         </div>
                     </div>
                 </div>
