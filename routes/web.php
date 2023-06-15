@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardPesanan;
 use App\Http\Controllers\DashboardLapangan;
 use App\Http\Controllers\DashboardPesananDetail;
 use App\Http\Controllers\Explore;
+use App\Http\Controllers\LandingGuest;
 use App\Http\Controllers\ReceiveOrderController;
 use App\Http\Controllers\MyOrders;
 
@@ -29,9 +30,7 @@ use App\Http\Controllers\MyOrders;
 */
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/', function () {
-        return view("landingGuest");
-    });
+    Route::get('/', [LandingGuest::class, 'index'])->name('landing.guest');
     // Auth
     Route::get('/login', [Login::class, 'index'])->name('login.index');
     Route::post('/login', [Login::class, 'login'])->name('login.store');

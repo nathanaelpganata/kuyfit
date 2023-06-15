@@ -114,7 +114,7 @@
                 <div class="flex flex-row justify-between w-full items-center">
                     <button type="submit" class="text-white bg-blue-500 w-44 h-10 rounded-lg hover:bg-[#01B2FE]">Create
                         Account</button>
-                    <span class="md:mt-0 mt-2">Already a member? <a href="#"
+                    <span class="md:mt-0 mt-2">Already a member? <a href="/login"
                             class="text-blue-600 hover:text-blue-800 underline decoration-blue-600 hover:decoration-blue-800">Log
                             In</a></span>
                 </div>
