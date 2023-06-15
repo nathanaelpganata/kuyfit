@@ -11,7 +11,7 @@ class VenueOrder extends Controller
         'hour' => 'required',
         'bank' => 'required',
         'totalPrice' => 'required',
-        'bukti_pembayaran' => 'required',
+        'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
 
     protected $id;
@@ -45,7 +45,12 @@ class VenueOrder extends Controller
         $venueOrder->totalPrice = $validatedData['totalPrice'];
         $venueOrder->schedule = $validatedData['date'] . " - " . implode(',', $validatedData['hour']);
         $venueOrder->bankId = $validatedData['bank'];
-        $venueOrder->paymentProof = $validatedData['bukti_pembayaran'];
+
+        $imageName = \Ramsey\Uuid\Uuid::uuid4()->toString() . time() . '.' . $request->bukti_pembayaran->extension();
+        $request->bukti_pembayaran->storeAs('images/', $imageName);
+        $request->bukti_pembayaran->move(public_path('images/buktipembayaram'), $imageName);
+
+        $venueOrder->paymentProof = 'images/buktipembayaram/' . $imageName;
         $venueOrder->deadline = date('Y-m-d H:i:s', strtotime($validatedData['date'] . ' + 1 day'));
         $venueOrder->status = 'pending';
         $venueOrder->lapanganId = request()->route('id');

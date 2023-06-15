@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\PemilikFactory;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,7 +27,13 @@ class AkunPemilikLapangan extends Model implements AuthenticatableContract
     protected $primaryKey = 'id';
     protected $dates = ['created_at', 'updated_at'];
 
-    public function lapangan() {
+    public function lapangan()
+    {
         return $this->hasMany(Lapangan::class, 'ownerId');
+    }
+
+    protected static function newFactory()
+    {
+        return PemilikFactory::new();
     }
 }

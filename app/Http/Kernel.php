@@ -64,5 +64,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'auth.kuyfit' => \App\Http\Middleware\AuthenticatePemilikPenyewa::class,
+        'auth.pemilik' => \App\Http\Middleware\PemilikOnly::class,
+        'auth.penyewa' => \App\Http\Middleware\PenyewaOnly::class,
     ];
 }

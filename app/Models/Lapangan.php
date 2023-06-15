@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\LapanganFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -54,5 +55,10 @@ class Lapangan extends Model
     public function pesananSewaLapangan()
     {
         return $this->hasMany(PesananSewaLapangan::class, 'venueId');
+    }
+
+    protected static function newFactory()
+    {
+        return LapanganFactory::new();
     }
 }

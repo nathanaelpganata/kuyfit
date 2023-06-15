@@ -29,7 +29,7 @@ use App\Http\Controllers\MyOrders;
 */
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/', function() {
+    Route::get('/', function () {
         return view("landingGuest");
     });
     // Auth
@@ -59,14 +59,15 @@ Route::middleware(['auth.kuyfit'])->group(function () {
 
     Route::get('/logout', [Login::class, 'logout'])->name('logout.index');
 
-    Route::prefix('/my')->group(function () {
+    Route::prefix('/my')->middleware('auth.pemilik')->group(function () {
         // Home
         Route::get('/', [ReceiveOrderController::class, 'showDashboard'])->name('dashboard.home');
         // Pesanan
         Route::get('/pesanan', [ReceiveOrderController::class, 'showOrders'])->name('dashboard.pesanan');
         Route::get('/pesanan/detail', [DashboardPesananDetail::class, 'index'])->name('dashboard.pesanan.detail');
         Route::get('/pesanan/detail/{id}', [ReceiveOrderController::class, 'showOrderDetails'])->name('dashboard.detailPesanan');
-        Route::get('/pesanan/detail/{id}/update/{status}', [ReceiveOrderController::class, 'orderDecision'])->name('dashboard.updatePesanan');
+        Route::get('/pesanan/detail/{id}/accept', [ReceiveOrderController::class, 'accept'])->name('dashboard.updatePesanan.accept');
+        Route::get('/pesanan/detail/{id}/reject', [ReceiveOrderController::class, 'reject'])->name('dashboard.updatePesanan.reject');
         // Lapangan
         Route::get('/lapangan', [DashboardLapangan::class, 'index'])->name('dashboard.lapangan');
         Route::get('/lapangan/tambah', [DashboardLapangan::class, 'create'])->name('dashboard.lapangan.tambah');

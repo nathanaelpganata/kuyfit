@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Applications\StatusPesananMail;
 use App\Models\PesananSewaLapangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Mail;
 
 class ReceiveOrderController extends Controller
 {
@@ -31,7 +33,9 @@ class ReceiveOrderController extends Controller
 
         $ownerId = Auth::id();
 
-        $orders = PesananSewaLapangan::where('ownerId', '=', $ownerId)->paginate(10);
+        $orders = PesananSewaLapangan::where('ownerId', '=', $ownerId)->paginate(
+            (request()->query('entries') == null ? 10 : (int)request()->query('entries'))
+        );
 
 
         return view('dashboard.pesanan', [
@@ -49,20 +53,41 @@ class ReceiveOrderController extends Controller
         ]);
     }
 
-    public function orderDecision($id, $status)
+    public function accept($id)
     {
+        $pesanan = PesananSewaLapangan::find($id);
 
-        DB::table('pesanan_sewa_lapangan')->where('id', $id)->update([
-            'status' => $status
-        ]);
+        $pesanan->status = 'ongoing';
+        $pesanan->save();
 
-        return redirect()
-            ->route('dashboard.pesanan')
-            ->with('success', 'Status updated successfully');
+        Mail::to($pesanan->akunPenyewa->email)->send(new StatusPesananMail(
+            "",
+            $pesanan->akunPenyewa->firstName . ' ' . $pesanan->akunPenyewa->lastName,
+            true
+        ));
+
+        return redirect()->route('dashboard.pesanan')
+            ->with('success', 'Pesanan accepted successfully.');
     }
 
-    // Kirim email ke penyewa terkait perubahan status pesanan menjadi ditolak/diterima
-    public function sendOrderStatus()
+    public function reject($id)
     {
+        if (request()->query('reason') == null)
+            return redirect()->route('dashboard.pesanan')
+                ->with('error', 'Please fill the reason field.');
+
+        $pesanan = PesananSewaLapangan::find($id);
+
+        $pesanan->status = 'cancelled';
+        $pesanan->save();
+
+        Mail::to($pesanan->akunPenyewa->email)->send(new StatusPesananMail(
+            request()->query('reason'),
+            $pesanan->akunPenyewa->firstName . ' ' . $pesanan->akunPenyewa->lastName,
+            false
+        ));
+
+        return redirect()->route('dashboard.pesanan')
+            ->with('success', 'Pesanan rejected successfully.');
     }
 }

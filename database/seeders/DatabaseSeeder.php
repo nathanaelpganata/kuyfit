@@ -35,5 +35,15 @@ class DatabaseSeeder extends Seeder
                 ]
             ]
         );
+
+        \App\Models\AkunPenyewa::factory(10)->create();
+        \App\Models\AkunPemilikLapangan::factory(10)->create();
+        $lapangan_basket = \App\Models\Lapangan::factory(10)->withLapangan(1)->make();
+        $lapangan_futsal = \App\Models\Lapangan::factory(10)->withLapangan(2)->make();
+        $lapangan_badminton = \App\Models\Lapangan::factory(10)->withLapangan(3)->make();
+
+        \App\Models\Lapangan::insert($lapangan_basket->toArray());
+        \App\Models\Lapangan::insert($lapangan_futsal->toArray());
+        \App\Models\Lapangan::insert($lapangan_badminton->toArray());
     }
 }

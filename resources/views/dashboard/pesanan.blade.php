@@ -8,11 +8,12 @@
             <h1 class="text-4xl font-bold text-left">Pesanan</h1>
         </div>
         <div class="flex justify-end mx-10 my-6">
-            <select id="dataFilter" name="dataFilter" class="text-[#9AA2B1] text-base text-left w-1/5 rounded-md px-5 py-2">
-                <option value="10">10 Entries</option>
-                <option value="25">25 Entries</option>
-                <option value="50">50 Entries</option>
-                <option value="100">100 Entries</option>
+            <select id="dataFilter" name="dataFilter" class="text-[#9AA2B1] text-base text-left w-1/5 rounded-md px-5 py-2"
+                onchange="changeEntries(this.value)">
+                <option value="10" {{ request()->query('entries') == 10 ? 'selected' : '' }}>10 Entries</option>
+                <option value="25" {{ request()->query('entries') == 25 ? 'selected' : '' }}>25 Entries</option>
+                <option value="50" {{ request()->query('entries') == 50 ? 'selected' : '' }}>50 Entries</option>
+                <option value="100" {{ request()->query('entries') == 100 ? 'selected' : '' }}>100 Entries</option>
             </select>
         </div>
         <div class="mx-10">
@@ -75,7 +76,7 @@
                 </tbody>
             </table>
         </div>
-        {{ $orders->links() }}
+        {{ $orders->appends($_GET)->links() }}
         {{-- <div class="mx-10 my-6">
             <nav class="flex justify-end">
                 <ul class="inline-flex items-center space-x-2 text-base">
@@ -116,3 +117,13 @@
         </div> --}}
     </div>
 @endsection
+
+<script>
+    function changeEntries(entries) {
+        if ('URLSearchParams' in window) {
+            var searchParams = new URLSearchParams(window.location.search);
+            searchParams.set("entries", entries);
+            window.location.search = searchParams.toString();
+        }
+    }
+</script>

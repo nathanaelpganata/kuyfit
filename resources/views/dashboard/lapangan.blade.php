@@ -6,14 +6,17 @@
     <div class="h-screen w-full bg-[#F4F4F4]">
         <div class="flex flex-row justify-between m-10">
             <h1 class="text-4xl font-bold text-left">Pesanan</h1>
-            <a href="{{ route('dashboard.lapangan.tambah') }}" class="text-lg text-left px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg cursor-pointer hover:brightness-75">Tambah Lapangan</a>
+            <a href="{{ route('dashboard.lapangan.tambah') }}"
+                class="text-lg text-left px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg cursor-pointer hover:brightness-75">Tambah
+                Lapangan</a>
         </div>
         <div class="flex justify-end mx-10 my-6">
-            <select id="data-amount-filter" name="data-amount-filter" class="text-[#9AA2B1] text-base text-left w-1/5 rounded-md px-5 py-2">
-                <option value="10">10 Entries</option>
-                <option value="25">25 Entries</option>
-                <option value="50">50 Entries</option>
-                <option value="100">100 Entries</option>
+            <select id="data-amount-filter" name="data-amount-filter"
+                class="text-[#9AA2B1] text-base text-left w-1/5 rounded-md px-5 py-2" onchange="changeEntries(this.value)">
+                <option value="10" {{ request()->query('entries') == 10 ? 'selected' : '' }}>10 Entries</option>
+                <option value="25" {{ request()->query('entries') == 25 ? 'selected' : '' }}>25 Entries</option>
+                <option value="50" {{ request()->query('entries') == 50 ? 'selected' : '' }}>50 Entries</option>
+                <option value="100" {{ request()->query('entries') == 100 ? 'selected' : '' }}>100 Entries</option>
             </select>
         </div>
         <div class="mx-10 overflow-auto">
@@ -65,56 +68,79 @@
                     </tr>
                 </thead>
                 <tbody class="text-[#092540] bg-white">
-                    @foreach($lapangan as $l)
-                    <tr>
-                        <td class="px-6 py-4">
-                            {{ $l->id }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $l->venueName }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $l->oprTime }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $l->address }}
-                        </td>
-                        <td class="px-6 py-4">
-                           <span>Rp.{{ $l->price }}</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $l->phoneNumber }}
-                        </td>
-                        <td class="px-6 py-4 text-white font-medium">
-                            @if($l->wifi == 1) <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span> @else <span class="bg-red-500 px-2 py-1 rounded-lg">No</span> @endif
-                        </td>
-                        <td class="px-6 py-4 text-white font-medium">
-                            @if($l->toilet == 1) <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span> @else <span class="bg-red-500 px-2 py-1 rounded-lg">No</span> @endif
-                        </td>
-                        <td class="px-6 py-4 text-white font-medium">
-                            @if($l->canteen == 1) <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span> @else <span class="bg-red-500 px-2 py-1 rounded-lg">No</span> @endif
-                        </td>
-                        <td class="px-6 py-4 text-white font-medium">
-                            @if($l->musalla == 1) <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span> @else <span class="bg-red-500 px-2 py-1 rounded-lg">No</span> @endif
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $l->photo }}
-                        </td>
-                        <td class="px-6 py-4">
-                          @if($l->sportId == 1) <span>basketball</span> @elseif($l->sportId == 2) <span>futsal</span> @else <span>badminton</span> @endif
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $l->timeStamp }}
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="/my/lapangan/{{ $l->id }}" class="text-white bg-[#0090BD] py-2 px-5 rounded-lg">Detail</a>
-                        </td>
-                    </tr>
+                    @foreach ($lapangan as $l)
+                        <tr>
+                            <td class="px-6 py-4">
+                                {{ $l->id }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $l->venueName }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $l->oprTime }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $l->address }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <span>Rp.{{ $l->price }}</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $l->phoneNumber }}
+                            </td>
+                            <td class="px-6 py-4 text-white font-medium">
+                                @if ($l->wifi == 1)
+                                    <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span>
+                                @else
+                                    <span class="bg-red-500 px-2 py-1 rounded-lg">No</span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 text-white font-medium">
+                                @if ($l->toilet == 1)
+                                    <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span>
+                                @else
+                                    <span class="bg-red-500 px-2 py-1 rounded-lg">No</span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 text-white font-medium">
+                                @if ($l->canteen == 1)
+                                    <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span>
+                                @else
+                                    <span class="bg-red-500 px-2 py-1 rounded-lg">No</span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 text-white font-medium">
+                                @if ($l->musalla == 1)
+                                    <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span>
+                                @else
+                                    <span class="bg-red-500 px-2 py-1 rounded-lg">No</span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $l->photo }}
+                            </td>
+                            <td class="px-6 py-4">
+                                @if ($l->sportId == 1)
+                                    <span>basketball</span>
+                                @elseif($l->sportId == 2)
+                                    <span>futsal</span>
+                                @else
+                                    <span>badminton</span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $l->timeStamp }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="/my/lapangan/{{ $l->id }}"
+                                    class="text-white bg-[#0090BD] py-2 px-5 rounded-lg">Detail</a>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        {{ $lapangan->links() }}
+        {{ $lapangan->appends($_GET)->links() }}
         {{-- <div class="mx-10 my-6">
             <nav class="flex justify-end">
                 <ul class="inline-flex items-center space-x-2 text-base">
@@ -142,3 +168,12 @@
     </div>
 @endsection
 
+<script>
+    function changeEntries(entries) {
+        if ('URLSearchParams' in window) {
+            var searchParams = new URLSearchParams(window.location.search);
+            searchParams.set("entries", entries);
+            window.location.search = searchParams.toString();
+        }
+    }
+</script>

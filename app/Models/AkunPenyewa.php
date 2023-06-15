@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\PenyewaFactory;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,7 +27,13 @@ class AkunPenyewa extends Model implements AuthenticatableContract
     protected $primaryKey = 'id';
     protected $dates = ['created_at', 'updated_at'];
 
-    public function pesananSewaLapangan() {
+    public function pesananSewaLapangan()
+    {
         return $this->hasMany(pesananSewaLapangan::class, 'renterId');
+    }
+
+    protected static function newFactory()
+    {
+        return PenyewaFactory::new();
     }
 }

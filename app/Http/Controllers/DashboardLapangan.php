@@ -12,9 +12,12 @@ class DashboardLapangan extends Controller
     public function index()
     {
         $ownerId = Auth::id();
-        $lapangan = Lapangan::where('ownerId', $ownerId)->paginate(10);
+        $lapangan = Lapangan::where('ownerId', $ownerId)->paginate(
+            (request()->query('entries') == null ? 10 : (int)request()->query('entries'))
+        );
         return view('dashboard.lapangan', compact('lapangan'));
     }
+
     public function create()
     {
         return view('dashboard.tambahLapangan');

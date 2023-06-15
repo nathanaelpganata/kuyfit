@@ -16,7 +16,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('venueName', 32);
             $table->string('oprTime', 32);
-            $table->string('address', 32);
+            $table->string('address');
             $table->string('phoneNumber', 16);
             $table->integer('price')->unsigned();
             $table->boolean('wifi');
