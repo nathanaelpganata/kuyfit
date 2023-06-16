@@ -40,7 +40,7 @@
                     </div>
                     <input
                     class="w-[575px] h-[53px] rounded-lg bg-[#3F95C5] focus:outline-none px-3  placeholder:text-white/[0.3] font-bold text-white"
-                    placeholder="Masukkan jam operasional lapangan anda" id="operatingTime" type="text" value="{{ $lapangan['sportId'] }}" >
+                    placeholder="Masukkan jam operasional lapangan anda" id="operatingTime" type="text" value="{{ $lapangan->jenisOlahraga->sportType }}" >
 
                 </input>
                 </div>

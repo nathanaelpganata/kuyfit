@@ -5,7 +5,7 @@
 @section('content')
     <div class="h-screen w-full bg-[#F4F4F4]">
         <div class="flex flex-row justify-between m-10">
-            <h1 class="text-4xl font-bold text-left">Pesanan</h1>
+            <h1 class="text-4xl font-bold text-left">Lapangan</h1>
             <a href="{{ route('dashboard.lapangan.tambah') }}"
                 class="text-lg text-left px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg cursor-pointer hover:brightness-75">Tambah
                 Lapangan</a>
@@ -24,46 +24,25 @@
                 <thead class="text-white bg-[#61777D]">
                     <tr>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            id
+                            Nama lapangan
                         </th>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Venue Name
+                            Jenis Lapangan
                         </th>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Opr Time
+                            Alamat
                         </th>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Address
+                            Jam Operasional
                         </th>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Price
+                            Harga per Jam
                         </th>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Phone Num.
+                            Dibuat pada
                         </th>
                         <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Wifi
-                        </th>
-                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Toilet
-                        </th>
-                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Canteen
-                        </th>
-                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Musalla
-                        </th>
-                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Photo
-                        </th>
-                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Sport Id
-                        </th>
-                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Time Stamp
-                        </th>
-                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                            Action
+                            Aksi
                         </th>
                     </tr>
                 </thead>
@@ -71,62 +50,19 @@
                     @foreach ($lapangan as $l)
                         <tr>
                             <td class="px-6 py-4">
-                                {{ $l->id }}
-                            </td>
-                            <td class="px-6 py-4">
                                 {{ $l->venueName }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $l->oprTime }}
+                                {{ $l->jenisOlahraga->sportType }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $l->address }}
                             </td>
                             <td class="px-6 py-4">
-                                <span>Rp.{{ $l->price }}</span>
+                                {{ $l->oprTime }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $l->phoneNumber }}
-                            </td>
-                            <td class="px-6 py-4 text-white font-medium">
-                                @if ($l->wifi == 1)
-                                    <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span>
-                                @else
-                                    <span class="bg-red-500 px-2 py-1 rounded-lg">No</span>
-                                @endif
-                            </td>
-                            <td class="px-6 py-4 text-white font-medium">
-                                @if ($l->toilet == 1)
-                                    <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span>
-                                @else
-                                    <span class="bg-red-500 px-2 py-1 rounded-lg">No</span>
-                                @endif
-                            </td>
-                            <td class="px-6 py-4 text-white font-medium">
-                                @if ($l->canteen == 1)
-                                    <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span>
-                                @else
-                                    <span class="bg-red-500 px-2 py-1 rounded-lg">No</span>
-                                @endif
-                            </td>
-                            <td class="px-6 py-4 text-white font-medium">
-                                @if ($l->musalla == 1)
-                                    <span class="bg-green-500 px-2 py-1 rounded-lg">Yes</span>
-                                @else
-                                    <span class="bg-red-500 px-2 py-1 rounded-lg">No</span>
-                                @endif
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $l->photo }}
-                            </td>
-                            <td class="px-6 py-4">
-                                @if ($l->sportId == 1)
-                                    <span>basketball</span>
-                                @elseif($l->sportId == 2)
-                                    <span>futsal</span>
-                                @else
-                                    <span>badminton</span>
-                                @endif
+                                <span>Rp{{ number_format($l->price,0,",",".") }}</span>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $l->timeStamp }}

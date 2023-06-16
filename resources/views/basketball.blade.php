@@ -29,7 +29,7 @@
             @php($lapangans = \App\Models\Lapangan::where('sportId', '=', '1')->paginate(15))
             @foreach ($lapangans as $lapangan)
                 <a href="/order/{{ $lapangan->id }}" class="block max-w-sm p-6 hover:bg-gray-100 dark:bg-white dark:hover:bg-[#80D8FB]">
-                    <img src="{{ $lapangan->photo }}" alt="{{ $lapangan->venueName }}">
+                    <img src="{{ $lapangan->photo }}" alt="{{ $lapangan->venueName }}" class="w-96 h-96">
                     <h3 class="mt-5 mb-2 text-2xl font-bold tracking-tight text-[#363636] font-montserrat">{{ $lapangan->venueName }}</h3>
                     <div class="flex items-center space-x-2">
                         <img src="/images/vectorlokasi.png" alt="">

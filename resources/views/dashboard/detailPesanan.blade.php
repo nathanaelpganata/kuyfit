@@ -91,8 +91,7 @@
                             </div>
                             <div class="w-2/3 bg-[#3F95C5] border-4 border-none brightness-95 rounded-lg py-2 px-4 ">
                                 <img src="{{ asset($detail->paymentProof) }}" alt="haha"
-                                    class="object-scale-down w-1/2 mx-auto" height="50px">
-                                {{ $detail->paymentProof }}
+                                    class="object-scale-down w-4/5 mx-auto" height="50px">
                             </div>
                         </div>
                     </form>

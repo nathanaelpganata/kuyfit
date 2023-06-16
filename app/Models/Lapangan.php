@@ -47,10 +47,10 @@ class Lapangan extends Model
         return $this->belongsTo(AkunPenyewa::class, 'renterId');
     }
 
-    public function jadwalSewaLapangan()
-    {
-        return $this->hasMany(JadwalSewaLapangan::class, 'venueId');
-    }
+    // public function jadwalSewaLapangan()
+    // {
+    //     return $this->hasMany(JadwalSewaLapangan::class, 'venueId');
+    // }
 
     public function pesananSewaLapangan()
     {

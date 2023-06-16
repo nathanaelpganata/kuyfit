@@ -4,7 +4,11 @@
         <img src="/images/kuyfitlogotulisan.png" alt="Logo" class="h-14"><a href="/" class="text-"></a>
     </div>
     <div class="space-x-8">
-        <a href="/" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Home</a>
+        @if(Auth::check())
+            <a href="/home" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Home</a>
+        @else
+            <a href="/" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Home</a>
+        @endif
         <a href="/explore" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Explore</a>
         <a href="/myorders" class="hover:underline underline-offset-4 decoration-[#01B2FE] decoration-2">Order</a>
     </div>

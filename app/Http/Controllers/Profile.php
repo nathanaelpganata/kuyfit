@@ -11,7 +11,7 @@ class Profile extends Controller
     public function showRenterProfile()
     {
         $id = Auth::user()->id;
-        $akunPenyewa = AkunPenyewa::find($id)->get();
+        $akunPenyewa = AkunPenyewa::where('id', $id)->get();
         return view('profile', [
             'akunPenyewa' => $akunPenyewa
         ]);
