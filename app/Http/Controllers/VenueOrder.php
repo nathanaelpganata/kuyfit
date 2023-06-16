@@ -48,9 +48,9 @@ class VenueOrder extends Controller
 
         $imageName = \Ramsey\Uuid\Uuid::uuid4()->toString() . time() . '.' . $request->bukti_pembayaran->extension();
         $request->bukti_pembayaran->storeAs('images/', $imageName);
-        $request->bukti_pembayaran->move(public_path('images/buktipembayaram'), $imageName);
+        $request->bukti_pembayaran->move(public_path('images/buktipembayaran'), $imageName);
 
-        $venueOrder->paymentProof = 'images/buktipembayaram/' . $imageName;
+        $venueOrder->paymentProof = 'images/buktipembayaran/' . $imageName;
         $venueOrder->deadline = date('Y-m-d H:i:s', strtotime($validatedData['date'] . ' + 1 day'));
         $venueOrder->status = 'pending';
         $venueOrder->lapanganId = request()->route('id');
