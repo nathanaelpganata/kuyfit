@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Lapangan;
 use Illuminate\Http\Request;
 
-class DashboardLapangan extends Controller
+class VenueController extends Controller
 {
-    public function index()
+    public function showVenue()
     {
         $ownerId = Auth::id();
         $lapangan = Lapangan::where('ownerId', $ownerId)->paginate(
@@ -18,12 +18,7 @@ class DashboardLapangan extends Controller
         return view('dashboard.lapangan', compact('lapangan'));
     }
 
-    public function create()
-    {
-        return view('dashboard.tambahLapangan');
-    }
-
-    public function store(Request $request)
+    public function addVenue(Request $request)
     {
         $request->merge([
             'wifi' => $request->filled('wifi') ? $request->wifi : '0',
@@ -72,20 +67,20 @@ class DashboardLapangan extends Controller
             ->with('success', 'Lapangan created successfully.');
     }
 
-    public function show(Lapangan $lapangan, $id)
+    public function showVenueDetail(Lapangan $lapangan, $id)
     {
         $lapangan = Lapangan::find($id);
 
         return view('dashboard.detailLapangan', compact('lapangan'));
     }
 
-    public function edit(Lapangan $lapangan, $id)
+    public function editVenueDetail(Lapangan $lapangan, $id)
     {
         $lapangan = Lapangan::find($id);
         return view('dashboard.editDetailLapangan', compact('lapangan'));
     }
 
-    public function update(Request $request, Lapangan $lapangan, $id)
+    public function updateVenueDetail(Request $request, Lapangan $lapangan, $id)
     {
         $request->merge([
             'wifi' => $request->filled('wifi') ? $request->wifi : '0',
@@ -116,7 +111,7 @@ class DashboardLapangan extends Controller
             ->with('success', 'Lapangan updated successfully.');
     }
 
-    public function destroy(Lapangan $lapangan, $id)
+    public function deleteVenue(Lapangan $lapangan, $id)
     {
         $lapangan = Lapangan::find($id);
         $lapangan->delete();

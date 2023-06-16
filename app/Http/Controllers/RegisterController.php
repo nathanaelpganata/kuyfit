@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class Register extends Controller
+class RegisterController extends Controller
 {
     protected $rules = [
         'first_name' => 'required|min:3',
@@ -19,12 +19,7 @@ class Register extends Controller
         'agreement' => 'required',
     ];
 
-    public function index()
-    {
-        return view('auth.signup');
-    }
-
-    public function store(Request $request)
+    public function registerAccount(Request $request)
     {
         $validatedData = $request->validate($this->rules);
 

@@ -5,19 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Login extends Controller
+class LoginController extends Controller
 {
     protected $rules = [
         'email' => 'required|min:3',
         'password' => 'required|min:3',
     ];
 
-    public function index()
-    {
-        return view('auth.login');
-    }
-
-    public function login(Request $request)
+    public function loginAccount(Request $request)
     {
         $validatedData = $request->validate($this->rules);
 
@@ -35,7 +30,7 @@ class Login extends Controller
         }
     }
 
-    public function logout(Request $request)
+    public function logoutAccount(Request $request)
     {
         session()->invalidate();
 

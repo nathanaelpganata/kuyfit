@@ -6,7 +6,7 @@ use App\Models\AkunPenyewa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Profile extends Controller
+class RenterProfileController extends Controller
 {
     public function showRenterProfile()
     {
