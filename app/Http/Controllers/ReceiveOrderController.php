@@ -53,41 +53,36 @@ class ReceiveOrderController extends Controller
         ]);
     }
 
-    public function accept($id)
+    public function sendOrderStatus($id, Request $request)
     {
-        $pesanan = PesananSewaLapangan::find($id);
+        $request->validate([
+            'status' => 'required|in:accept,reject',
+            'reason' => 'required_if:status,reject'
+        ]);
 
-        $pesanan->status = 'ongoing';
-        $pesanan->save();
+        $order = PesananSewaLapangan::find($id);
 
-        Mail::to($pesanan->akunPenyewa->email)->send(new StatusPesananMail(
-            "",
-            $pesanan->akunPenyewa->firstName . ' ' . $pesanan->akunPenyewa->lastName,
-            true
-        ));
+        $request->merge([
+            'status' => $request->status == "accept" ? "ongoing" : "cancelled"
+        ]);
+
+        $order->status = $request->status;
+        $order->save();
+
+        if ($request->status === "ongoing")
+            Mail::to($order->akunPenyewa->email)->send(new StatusPesananMail(
+                "",
+                $order->akunPenyewa->firstName . ' ' . $order->akunPenyewa->lastName,
+                true
+            ));
+        else
+            Mail::to($order->akunPenyewa->email)->send(new StatusPesananMail(
+                $request->reason,
+                $order->akunPenyewa->firstName . ' ' . $order->akunPenyewa->lastName,
+                false
+            ));
 
         return redirect()->route('dashboard.pesanan')
-            ->with('success', 'Pesanan accepted successfully.');
-    }
-
-    public function reject($id)
-    {
-        if (request()->query('reason') == null)
-            return redirect()->route('dashboard.pesanan')
-                ->with('error', 'Please fill the reason field.');
-
-        $pesanan = PesananSewaLapangan::find($id);
-
-        $pesanan->status = 'cancelled';
-        $pesanan->save();
-
-        Mail::to($pesanan->akunPenyewa->email)->send(new StatusPesananMail(
-            request()->query('reason'),
-            $pesanan->akunPenyewa->firstName . ' ' . $pesanan->akunPenyewa->lastName,
-            false
-        ));
-
-        return redirect()->route('dashboard.pesanan')
-            ->with('success', 'Pesanan rejected successfully.');
+            ->with('success', 'Pesanan updated successfully.');
     }
 }

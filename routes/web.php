@@ -65,8 +65,7 @@ Route::middleware(['auth.kuyfit'])->group(function () {
         Route::get('/pesanan', [ReceiveOrderController::class, 'showOrders'])->name('dashboard.pesanan');
         Route::get('/pesanan/detail', [DashboardPesananDetail::class, 'index'])->name('dashboard.pesanan.detail');
         Route::get('/pesanan/detail/{id}', [ReceiveOrderController::class, 'showOrderDetails'])->name('dashboard.detailPesanan');
-        Route::get('/pesanan/detail/{id}/accept', [ReceiveOrderController::class, 'accept'])->name('dashboard.updatePesanan.accept');
-        Route::get('/pesanan/detail/{id}/reject', [ReceiveOrderController::class, 'reject'])->name('dashboard.updatePesanan.reject');
+        Route::post('/pesanan/detail/{id}/action', [ReceiveOrderController::class, 'sendOrderStatus'])->name('dashboard.updatePesanan.action');
         // Lapangan
         Route::get('/lapangan', [DashboardLapangan::class, 'index'])->name('dashboard.lapangan');
         Route::get('/lapangan/tambah', [DashboardLapangan::class, 'create'])->name('dashboard.lapangan.tambah');
