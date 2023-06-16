@@ -292,7 +292,7 @@
                 <div class="flex flex-row justify-between items-center w-full">
                     <div class="flex flex-col">
                         <label for="totalPrice" class="text-sm font-semibold">Total</label>
-                        <span class="text-lg text-[#00B7FF] font-bold flex flex-row items-center gap-2">Rp.<input name="totalPrice" id="totalPrice" x-model="total" class="bg-transparent outline-none border-transparent select-none" type="number" disabled></input></span>
+                        <span class="text-lg text-[#00B7FF] font-bold flex flex-row items-center gap-2">Rp.<input name="totalPrice" id="totalPrice" x-model="total" class="bg-transparent outline-none border-transparent select-none" type="number"></input></span>
                     </div>
                     <div class="flex flex-col bg-white rounded-xl text-sm px-4 py-2 w-[224px]">
                         <h2 class="font-semibold">Account Number</h2>
