@@ -104,7 +104,19 @@ class VenueController extends Controller
         ]);
         $request['ownerId'] = Auth::user()->id;
 
+        $imageName = \Ramsey\Uuid\Uuid::uuid4()->toString() . time() . '.' . $request->photo->extension();
+        $request['photo']->storeAs('images/', $imageName);
+        $request['photo']->move(public_path('images/fotolapangan'), $imageName);
+        $request['photo'] = 'images/fotolapangan/' . $imageName;
+
         $lapangan = Lapangan::find($id);
+
+        // delete old photo
+        $oldPhoto = $lapangan->photo;
+        if (file_exists($oldPhoto)) {
+            unlink($oldPhoto);
+        }
+
         $lapangan->update($request->all());
 
         return redirect()->route('dashboard.lapangan')
