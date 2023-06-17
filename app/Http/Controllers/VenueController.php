@@ -118,4 +118,19 @@ class VenueController extends Controller
         return redirect()->route('dashboard.lapangan')
             ->with('success', 'Lapangan deleted successfully.');
     }
+
+    public function showFutsalVenueList()
+    {
+        return view('futsal');
+    }
+
+    public function showBasketVenueList()
+    {
+        return view('basketball');
+    }
+
+    public function showBadmintonVenueList()
+    {
+        return view('badminton');
+    }
 }

@@ -1,22 +1,14 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Basketball;
-use App\Http\Controllers\Futsal;
-use App\Http\Controllers\RenterProfileController;
-use App\Http\Controllers\Landing;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\Badminton;
-use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardHome;
-use App\Http\Controllers\DashboardPesanan;
-use App\Http\Controllers\VenueController;
-use App\Http\Controllers\DashboardPesananDetail;
-use App\Http\Controllers\Explore;
-use App\Http\Controllers\LandingGuest;
-use App\Http\Controllers\ReceiveOrderController;
+use App\Http\Controllers\Landing;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyOrders;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReceiveOrderController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RenterProfileController;
+use App\Http\Controllers\VenueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,48 +21,52 @@ use App\Http\Controllers\MyOrders;
 |
 */
 
+// GUEST
 Route::middleware(['guest'])->group(function () {
-    Route::get('/', [LandingGuest::class, 'index'])->name('landing.guest');
-    // Auth
+    // LANDING
+    Route::get('/', [Landing::class, 'landingGuest'])->name('landing.guest');
+    // LOGIN
     Route::get('/login', function(){
         return view('auth.login');
     })->name('login.index');
     Route::post('/login', [LoginController::class, 'loginAccount'])->name('login.store');
-
+    // REGISTER
     Route::get('/register', function(){
         return view('auth.signup');
     })->name('register.index');
     Route::post('/register', [RegisterController::class, 'registerAccount'])->name('register.store');
 });
 
-// Dashboard
+// SESSION
 Route::middleware(['auth.kuyfit'])->group(function () {
-    // User Penyewa
-    Route::get('/home', [Landing::class, 'index'])->name('landing');
-    Route::get('/myorders', [MyOrders::class, 'index'])->name('myorders');
-    // Explore
-    Route::get('/explore', [Explore::class, 'index'])->name('Explore');
-    Route::get('/profile', [RenterProfileController::class, 'showRenterProfile'])->name('profile');
-    Route::put('/profile/{id}/edit', [RenterProfileController::class, 'updateRenterProfile'])->name('profile.update ');
 
-    Route::get('/explore/badminton', [Badminton::class, 'index'])->name('badminton');
-    Route::get('/explore/basketball', [Basketball::class, 'index'])->name('basketball');
-    Route::get('/explore/futsal', [Futsal::class, 'index'])->name('futsal');
-    // Order
+    // AKUN PENYEWA
+    Route::get('/home', [Landing::class, 'landing'])->name('landing');
+    Route::get('/myorders', [MyOrders::class, 'showMyOrders'])->name('myorders');
+    Route::get('/profile', [RenterProfileController::class, 'showRenterProfile'])->name('profile');
+    Route::put('/profile/{id}/edit', [RenterProfileController::class, 'updateRenterProfile'])->name('profile.update');
+    // EXPLORE
+    Route::get('/explore', function(){
+        return view('explore');
+    })->name('Explore');
+    Route::get('/explore/badminton', [VenueController::class, 'showBadmintonVenueList'])->name('badminton');
+    Route::get('/explore/basketball', [VenueController::class, 'showBasketVenueList'])->name('basketball');
+    Route::get('/explore/futsal', [VenueController::class, 'showFutsalVenueList'])->name('futsal');
+    // ORDER
     Route::get('/order/{id}', [OrderController::class, 'showOrderStep']);
     Route::post('/order/{id}/store', [OrderController::class, 'sendOrderRequest']);
-
+    // LOGOUT
     Route::get('/logout', [LoginController::class, 'logoutAccount'])->name('logout.index');
 
+    // AKUN PEMILIK LAPANGAN
     Route::prefix('/my')->middleware('auth.pemilik')->group(function () {
-        // Home
+        // DASHBOARD
         Route::get('/', [ReceiveOrderController::class, 'showDashboard'])->name('dashboard.home');
-        // Pesanan
+        // PESANAN
         Route::get('/pesanan', [ReceiveOrderController::class, 'showOrders'])->name('dashboard.pesanan');
-        Route::get('/pesanan/detail', [DashboardPesananDetail::class, 'index'])->name('dashboard.pesanan.detail');
         Route::get('/pesanan/detail/{id}', [ReceiveOrderController::class, 'showOrderDetails'])->name('dashboard.detailPesanan');
         Route::post('/pesanan/detail/{id}/action', [ReceiveOrderController::class, 'sendOrderStatus'])->name('dashboard.updatePesanan.action');
-        // Lapangan
+        // LAPANGAN
         Route::get('/lapangan', [VenueController::class, 'showVenue'])->name('dashboard.lapangan');
         Route::get('/lapangan/tambah', function(){
             return view('dashboard.tambahLapangan');

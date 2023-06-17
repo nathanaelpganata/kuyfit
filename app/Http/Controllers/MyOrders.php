@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MyOrders extends Controller
 {
-    public function index()
+    public function showMyOrders()
     {
         $myOrder = PesananSewaLapangan::where('renterId', Auth::id())->get();
 

@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 
 class Landing extends Controller
 {
-    public function index() {
+    public function landing() {
         $lapangan = Lapangan::take(4)->get();
         return view('landing', [
             'lapangan' => $lapangan
         ]);
     }
+
+    public function landingGuest() {
+        $lapangan = Lapangan::take(4)->get();
+        return view('landingGuest', [
+            'lapangan' => $lapangan
+        ]);
+    }
+    
 }

@@ -59,7 +59,7 @@
                                 {{ $order->schedule }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $order->totalPrice }}
+                                Rp{{ number_format($order->totalPrice,0,',','.') }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $order->status }}

@@ -17,8 +17,8 @@ class ReceiveOrderController extends Controller
 
         $ownerId = Auth::id();
 
-        $pending = PesananSewaLapangan::where('ownerId', $ownerId)->where('status', 'pending')->count();
-        $ongoing = PesananSewaLapangan::where('ownerId', $ownerId)->where('status', 'ongoing')->count();
+        $pending = PesananSewaLapangan::where('ownerId', $ownerId)->where('status', 'pending')->whereNotNull('lapanganId')->count();
+        $ongoing = PesananSewaLapangan::where('ownerId', $ownerId)->where('status', 'ongoing')->whereNotNull('lapanganId')->count();
         $finished = PesananSewaLapangan::where('ownerId', $ownerId)->where('status', 'finished')->count();
 
         return view('dashboard.home', [
@@ -33,7 +33,7 @@ class ReceiveOrderController extends Controller
 
         $ownerId = Auth::id();
 
-        $orders = PesananSewaLapangan::where('ownerId', '=', $ownerId)->paginate(
+        $orders = PesananSewaLapangan::where('ownerId', '=', $ownerId)->whereNotNull('lapanganId')->paginate(
             (request()->query('entries') == null ? 10 : (int)request()->query('entries'))
         );
 

@@ -18,7 +18,7 @@
                         </form>
                             <div class="relative z-50" x-data="{openReject: false}">
                                 <button @click="openReject = !openReject" class="bg-red-600 shadow hover:brightness-110 focus:shadow-outline focus:outline-none text-white text-base font-bold tracking-wider py-2 px-4 rounded-lg">
-                                    Reject
+                                    Tolak
                                 </button>
                                 <form class="absolute z-50 flex flex-col justify-center items-center gap-3 w-72 h-auto sm:w-96 sm:h-auto bg-black rounded-lg top-16 -right-10 sm:right-4 p-4" x-show="openReject" action="/my/pesanan/detail/{{ $detail->id }}/action" method="POST">
                                     @csrf
