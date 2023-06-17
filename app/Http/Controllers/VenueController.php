@@ -89,7 +89,7 @@ class VenueController extends Controller
             'musalla' => $request->filled('musalla') ? $request->musalla : '0',
         ]);
 
-        $request->validate([
+        $validatedData = $request->validate([
             'venueName' => 'required',
             'oprTime' => 'required',
             'address' => 'required',
@@ -117,7 +117,19 @@ class VenueController extends Controller
             unlink($oldPhoto);
         }
 
-        $lapangan->update($request->all());
+        $lapangan->venueName = $validatedData['venueName'];
+        $lapangan->oprTime = $validatedData['oprTime'];
+        $lapangan->address = $validatedData['address'];
+        $lapangan->phoneNumber = $validatedData['phoneNumber'];
+        $lapangan->price = $validatedData['price'];
+        $lapangan->wifi = $validatedData['wifi'];
+        $lapangan->toilet = $validatedData['toilet'];
+        $lapangan->canteen = $validatedData['canteen'];
+        $lapangan->musalla = $validatedData['musalla'];
+        $lapangan->photo = 'images/fotolapangan/' . $imageName;
+        $lapangan->sportId = $validatedData['sportId'];
+
+        $lapangan->save();
 
         return redirect()->route('dashboard.lapangan')
             ->with('success', 'Lapangan updated successfully.');
