@@ -21,14 +21,18 @@ class RenterProfileController extends Controller
     {
         // dd($request->all());
         $request->validate(
-        [
-            'firstName' => 'required|min:3',
-            'lastName' => 'required|min:3',
-            'phoneNumber' => 'required|min:8',
-            'password' => 'required|min:8|same:confirm_password',
-            'confirm_password' => 'required|min:8'
-        ]
+            [
+                'firstName' => 'required|min:3',
+                'lastName' => 'required|min:3',
+                'phoneNumber' => 'required|min:8',
+                'password' => 'required|min:8|same:confirm_password',
+                'confirm_password' => 'required|min:8'
+            ]
         );
+
+        $request->merge([
+            'password' => bcrypt($request->password)
+        ]);
 
         AkunPenyewa::find($id)->update($request->all());
 
