@@ -15,16 +15,16 @@
         </div>
     </div>
     {{-- Step Start --}}
-    <form x-data="{ step: 1, total: 0}" action="{{ request()->route('id') }}/store" method="POST" enctype="multipart/form-data">
+    <form x-data="{ step: 1, total: 0 }" action="{{ request()->route('id') }}/store" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{-- Step 1 --}}
         <div class="flex flex-row justify-center gap-[46px] pb-20" x-show="step==1">
             <div class="w-[300px] h-[300px]">
-                <img class="rounded-xl" src="{{ $lapangan->photo }}" alt="lapangan">
+                <img class="rounded-xl" src="{{ asset($lapangan->photo) }}" alt="lapangan">
             </div>
             <div class="flex flex-col ">
                 <h2 class="text-4xl font-bold">{{ $lapangan->venueName }}</h2>
-                <h3 class="text-3xl text-[#6E6F70]">Rp{{ number_format($lapangan->price,0,",",".") }}/jam</h3>
+                <h3 class="text-3xl text-[#6E6F70]">Rp{{ number_format($lapangan->price, 0, ',', '.') }}/jam</h3>
                 <div class="flex gap-4 flex-row mt-3">
                     <img class="w-[25px]" src="{{ asset('images/logo/location.svg') }}" alt="description of myimage">
                     <div class="flex flex-col">
@@ -82,7 +82,8 @@
                         <p class="text-[#6E6F70] font-semibold">{{ $lapangan->oprTime }}</p>
                     </div>
                 </div>
-                <div class="btn flex my-5  w-[250px] h-[34px] bg-[#00B7FF] rounded-lg shadow-xl hover:brightness-75 cursor-pointer"  @click="step=2">
+                <div class="btn flex my-5  w-[250px] h-[34px] bg-[#00B7FF] rounded-lg shadow-xl hover:brightness-75 cursor-pointer"
+                    @click="step=2">
                     <div class="m-auto">
                         <div class="text-white ">Pilih Jadwal</div>
                     </div>
@@ -101,129 +102,149 @@
                 <div class="grid grid-cols-4 gap-2">
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="5" id="5">
-                        <label for='5'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='5' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">05:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">05:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="6" id="6">
-                        <label for='6'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='6' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">06:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">06:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="7" id="7">
-                        <label for='7'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='7' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">07:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">07:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="8" id="8">
-                        <label for='8'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='8' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">08:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">08:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="9" id="9">
-                        <label for='9'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='9' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">09:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">09:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="10" id="10">
-                        <label for='10'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='10' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">10:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">10:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="11" id="11">
-                        <label for='11'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='11' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">11:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">11:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="12" id="12">
-                        <label for='12'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='12' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">12:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">12:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="13" id="13">
-                        <label for='13'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='13' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">13:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">13:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="14" id="14">
-                        <label for='14'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='14' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">14:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">14:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="15" id="15">
-                        <label for='15'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='15' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">15:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">15:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="16" id="16">
-                        <label for='16'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='16' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">16:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">16:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="17" id="17">
-                        <label for='17'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='17' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">17:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">17:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="18" id="18">
-                        <label for='18'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='18' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">18:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">18:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="19" id="19">
-                        <label for='19'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='19' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">19:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">19:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="20" id="20">
-                        <label for='20'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='20' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">20:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">20:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="21" id="21">
-                        <label for='21'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='21' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">21:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">21:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="22" id="22">
-                        <label for='22'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='22' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">22:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">22:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="23" id="23">
-                        <label for='23'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='23' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">23:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">23:00</label>
                     </div>
                     <div class="col-span-1">
                         <input type="checkbox" class="hidden" name="hour[]" value="24" id="24">
-                        <label for='24'   class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
+                        <label for='24' class="px-2 py-1 rounded-[10px] font-semibold text-sm cursor-pointer"
                             x-bind:class="active ? 'text-[#009AD7] bg-[#80D8FB]' : 'bg-[#C4C4C4] text-black'"
-                            x-data="{ active: false }" x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">24:00</label>
+                            x-data="{ active: false }"
+                            x-on:click="active = !active, total = active ? total+{{ $lapangan->price }} : total-{{ $lapangan->price }}">24:00</label>
                     </div>
                 </div>
                 <div class="flex flex-col justify-center items-center w-full">
                     <div class="flex flex-row items-center justify-between w-full text-lg font-semibold text-[#24B7F1]">
                         <p>Total</p>
-                        <p>Rp. <span  x-text="total"></span></p>
+                        <p>Rp. <span x-text="total"></span></p>
                     </div>
                     <p class="py-1.5 rounded-[4px] text-white font-semibold bg-[#00B7FF] mt-2 text-center cursor-pointer w-full shadow-sm shadow-black"
                         @click="step=3">Bayar</p>
@@ -292,7 +313,10 @@
                 <div class="flex flex-row justify-between items-center w-full">
                     <div class="flex flex-col">
                         <label for="totalPrice" class="text-sm font-semibold">Total</label>
-                        <span class="text-lg text-[#00B7FF] font-bold flex flex-row items-center gap-2">Rp<input name="totalPrice" id="totalPrice" x-model="total" class="bg-transparent outline-none border-transparent select-none" type="number"/></span>
+                        <span class="text-lg text-[#00B7FF] font-bold flex flex-row items-center gap-2">Rp<input
+                                name="totalPrice" id="totalPrice" x-model="total"
+                                class="bg-transparent outline-none border-transparent select-none"
+                                type="number" /></span>
                     </div>
                     <div class="flex flex-col bg-white rounded-xl text-sm px-4 py-2 w-[224px]">
                         <h2 class="font-semibold">Account Number</h2>
