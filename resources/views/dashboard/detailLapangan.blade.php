@@ -110,10 +110,9 @@
                     <div class="w-48 flex content-center">
                         <label class="flex items-center justify-center text-white font-semibold text-lg">Upload Foto</label>
                     </div>
-                    <div
-                        class="w-[575px] h-[253px] rounded-lg bg-[#3F95C5] flex flex-col px-3  placeholder:text-white/[0.3] font-bold text-white">
+                    <div class="w-[575px] h-full rounded-lg bg-[#3F95C5] flex flex-col px-3  placeholder:text-white/[0.3] font-bold text-white">
                         <div class="flex justify-center my-4">
-                        <img width="167px" height="131px" src="{{ $lapangan['photo'] }}"" alt="">
+                        <img width="300px" height="131px" src="{{ asset($lapangan['photo']) }}" alt="Foto lapangan {{ $lapangan['venueName'] }}">
                         </div>
                     </div>
                 </div>

@@ -19,9 +19,7 @@
         {{ csrf_field() }}
         {{-- Step 1 --}}
         <div class="flex flex-row justify-center gap-[46px] pb-20" x-show="step==1">
-            <div class="w-[300px] h-[300px]">
-                <img class="rounded-xl" src="{{ asset($lapangan->photo) }}" alt="lapangan">
-            </div>
+            <img src="{{ asset($lapangan->photo) }}" alt="{{ $lapangan->venueName }}" class="w-[400px] h-[400px] object-cover object-center rounded-xl">
             <div class="flex flex-col ">
                 <h2 class="text-4xl font-bold">{{ $lapangan->venueName }}</h2>
                 <h3 class="text-3xl text-[#6E6F70]">Rp{{ number_format($lapangan->price, 0, ',', '.') }}/jam</h3>
