@@ -20,7 +20,7 @@
                                 <button @click="openReject = !openReject" class="bg-red-600 shadow hover:brightness-110 focus:shadow-outline focus:outline-none text-white text-base font-bold tracking-wider py-2 px-4 rounded-lg">
                                     Tolak
                                 </button>
-                                <form class="absolute z-50 flex flex-col justify-center items-center gap-3 w-72 h-auto sm:w-96 sm:h-auto bg-black rounded-lg top-16 -right-10 sm:right-4 p-4" x-show="openReject" action="/my/pesanan/detail/{{ $detail->id }}/action" method="POST">
+                                <form class="absolute z-50 flex flex-col justify-center items-center gap-3 w-72 h-auto sm:w-96 sm:h-auto bg-[#002634] rounded-lg top-16 -right-10 sm:right-4 p-4" x-show="openReject" action="/my/pesanan/detail/{{ $detail->id }}/action" method="POST">
                                     @csrf
                                     <div class="flex flex-row justify-between items-center w-full">
                                         <label for="reason" class="text-xl font-bold text-white tracking-wider">Reason</label>
@@ -28,7 +28,7 @@
                                     </div>
                                     <input type="text" class="hidden" name="status" id="status" value="reject">
                                     <textarea type="text" placeholder="Place your reason for rejecting here.. (max: 255)." name="reason" id="reason" class="px-4 py-3 outline-none select-none text-white border-[1px] border-white rounded-lg w-full h-36 bg-transparent text-base" maxlength="255" ></textarea>
-                                    <button type="submit" class="bg-red-600 py-1.5 text-base rounded-xl hover:brightness-75 w-full">Send</button>
+                                    <button type="submit" class="bg-red-600 py-1.5 text-base rounded-xl hover:brightness-75 w-full text-white">Send</button>
                                 </form>
                             </div>
                         {{-- <a href="/my/pesanan/detail/{{ $detail->id }}/reject?reason=nothing"

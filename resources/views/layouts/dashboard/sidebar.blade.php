@@ -1,5 +1,5 @@
 <div
-  class="flex-col h-screen w-[260px] bg-[#01B2FE] text-white fixed top-0 left-0 z-10 hidden lg:flex px-[30px] py-[40px] text-lg scroll overflow-y-auto"
+  class="flex-col h-screen w-[260px] bg-[#01B2FE] text-white fixed top-0 left-0 hidden lg:flex px-[30px] py-[40px] text-lg scroll overflow-y-auto z-[9999]"
 >
   <div class="flex justify-center">
     <img

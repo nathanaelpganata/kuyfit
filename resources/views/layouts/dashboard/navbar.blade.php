@@ -1,5 +1,5 @@
 <nav
-    class="flex w-full fixed h-20 justify-end px-10 items-center bg-gradient-to-r from-[#01B2FE] via-[#01B2FE] to-[#092540]">
+    class="flex w-full fixed h-20 justify-end px-10 items-center bg-gradient-to-r from-[#01B2FE] via-[#01B2FE] to-[#092540] z-[60]">
     <div class="relative">
         <div class="flex items-center md:order-2 gap-x-2 peer">
             <x-heroicon-s-user class="w-6 h-6 text-white" />
